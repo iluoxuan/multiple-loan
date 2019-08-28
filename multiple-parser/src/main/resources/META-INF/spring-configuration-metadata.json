@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "multiple.parser",
+      "type": "com.multiple.frame.parser.config.ParserProperties",
+      "sourceType": "com.multiple.frame.parser.config.ParserProperties"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

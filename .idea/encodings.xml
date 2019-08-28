@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/multiple-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/multiple-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/multiple-gw" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/multiple-parser" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/multiple-plugin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/multiple-sign" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/multiple-web" charset="UTF-8" />
+  </component>
+</project>
