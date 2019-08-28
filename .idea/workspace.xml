@@ -1,7 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62825481-9aa2-44a7-83d8-8341dd895b73" name="Default" comment="" />
+    <list default="true" id="62825481-9aa2-44a7-83d8-8341dd895b73" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/classes/com/multiple/frame/common/base/BizInterceptorOrder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/classes/com/multiple/frame/common/base/BizUnit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/classes/com/multiple/frame/common/base/ChannelBizInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/classes/com/multiple/frame/common/base/ChannelExchange.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/classes/com/multiple/frame/common/base/ChannelInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/classes/com/multiple/frame/common/base/ChannelParam.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/classes/com/multiple/frame/common/base/ContextConstants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/classes/com/multiple/frame/common/base/DefaultBiz.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/classes/com/multiple/frame/common/base/ExecuteInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/classes/com/multiple/frame/common/base/LocalContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/classes/com/multiple/frame/common/exception/ChannelException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/classes/com/multiple/frame/common/exception/ChannelSingException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/classes/com/multiple/frame/common/exception/DefaultErrorCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/classes/com/multiple/frame/common/exception/ErrorCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/classes/com/multiple/frame/common/utils/ReflectUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-common/target/multiple-common-1.0.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/classes/META-INF/spring.factories" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/classes/com/multiple/frame/core/MultipleCoreAutoConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/classes/com/multiple/frame/core/config/MultipleLoanProperties.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/classes/com/multiple/frame/core/dispatch/BizDispatch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/classes/com/multiple/frame/core/dispatch/ChannelBizDispatch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/classes/com/multiple/frame/core/handler/AbstractMethodMapping.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/classes/com/multiple/frame/core/handler/MethodMapping.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/classes/com/multiple/frame/core/handler/MethodMappingManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/classes/com/multiple/frame/core/handler/UnitBizMethodMapping.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/classes/com/multiple/frame/core/handler/UriMethodMapping.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/classes/com/multiple/frame/core/interceptor/ChannelHandlerExecutionChain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/classes/com/multiple/frame/core/interceptor/InvokerMethodBizInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/classes/com/multiple/frame/core/interceptor/LookExecuteBizInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-core/target/multiple-core-1.0.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-gw/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-gw/target/classes/com/multiple/frame/gw/GwApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-gw/target/classes/com/multiple/frame/gw/biz/ApplyBiz.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-gw/target/classes/com/multiple/frame/gw/biz/BankCardBiz.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-gw/target/classes/com/multiple/frame/gw/biz/PayBiz.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-gw/target/classes/com/multiple/frame/gw/biz/unit/ApplyBizUnit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-gw/target/classes/com/multiple/frame/gw/biz/unit/BankCardBizUnit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-gw/target/classes/com/multiple/frame/gw/biz/unit/PayBizUnit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-gw/target/classes/com/multiple/frame/gw/biz/unit/defaultunit/DefaultPayBizUnit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-gw/target/classes/com/multiple/frame/gw/web/controller/ChannelBizController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-gw/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-gw/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-gw/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-gw/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-gw/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-gw/target/multiple-gw-1.0.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/META-INF/spring.factories" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/com/multiple/loan/parser/MultipleParserAutoConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/com/multiple/loan/parser/config/ParserProperties.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/com/multiple/loan/parser/endpoint/ParserEndPoint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/com/multiple/loan/parser/interceptor/RequestCommonParserBizInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/com/multiple/loan/parser/interceptor/ResolveRequestBizInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/com/multiple/loan/parser/interceptor/ResolveResponseBizInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/com/multiple/loan/parser/resouce/ClasspathResourceLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/com/multiple/loan/parser/resouce/DataSourceResourceLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/com/multiple/loan/parser/resouce/MapCache.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/com/multiple/loan/parser/resouce/ResourceCache.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/com/multiple/loan/parser/resouce/ResourceLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/com/multiple/loan/parser/resouce/ResourceManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/com/multiple/loan/parser/resouce/ResourceType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/com/multiple/loan/parser/resouce/TemplateResource$TemplateResourceBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/com/multiple/loan/parser/resouce/TemplateResource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/com/multiple/loan/parser/resouce/TemplateResourceManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/com/multiple/loan/parser/template/View.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/classes/com/multiple/loan/parser/template/ViewResolve.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-parser/target/multiple-parser-1.0.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-plugin/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-plugin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-plugin/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-plugin/target/multiple-plugin-1.0.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-sign/target/classes/META-INF/spring.factories" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-sign/target/classes/com/multiple/loan/sign/SignAutoConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-sign/target/classes/com/multiple/loan/sign/SignConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-sign/target/classes/com/multiple/loan/sign/SignContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-sign/target/classes/com/multiple/loan/sign/SignManager$Holder$HolderBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-sign/target/classes/com/multiple/loan/sign/SignManager$Holder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-sign/target/classes/com/multiple/loan/sign/SignManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-sign/target/classes/com/multiple/loan/sign/encrypt/SignEncrypt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-sign/target/classes/com/multiple/loan/sign/encrypt/SignEncryptName.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-sign/target/classes/com/multiple/loan/sign/encrypt/SignEncryptParam.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-sign/target/classes/com/multiple/loan/sign/rule/SignRule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-sign/target/classes/com/multiple/loan/sign/rule/SignRuleName.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-sign/target/classes/com/multiple/loan/sign/rule/SignRuleParam.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-sign/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-sign/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-sign/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-sign/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-sign/target/multiple-sign-1.0.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-web/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-web/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiple-web/target/multiple-web-1.0.0-SNAPSHOT.jar" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/multiple-core/target/" />
@@ -29,11 +141,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChannelBizDispatch.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ChannelBizDispatch.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/multiple-core/src/main/java/com/multiple/frame/core/dispatch/ChannelBizDispatch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
+            <state relative-caret-position="301">
               <caret line="73" selection-start-line="73" selection-end-line="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -70,15 +191,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <caret line="5" column="34" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/multiple-parser/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -127,6 +239,9 @@
       <find>分身</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GradleLocalSettings">
     <option name="projectSyncType">
       <map>
@@ -137,7 +252,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/multiple-parser/src/main/java/com/multiple/loan/parser/endpoint/CacheEndPoint.java" />
         <option value="$PROJECT_DIR$/multiple-parser/src/main/java/com/multiple/loan/parser/endpoint/ParserEndPoint.java" />
         <option value="$PROJECT_DIR$/multiple-parser/src/main/java/com/multiple/loan/parser/interceptor/RequestTemplateParser.java" />
         <option value="$PROJECT_DIR$/multiple-common/src/main/java/com/multiple/loan/common/base/BizInterceptorOrder.java" />
@@ -188,6 +302,7 @@
         <option value="$PROJECT_DIR$/multiple-gw/pom.xml" />
         <option value="$PROJECT_DIR$/multiple-core/pom.xml" />
         <option value="$PROJECT_DIR$/multiple-common/pom.xml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -236,6 +351,7 @@
     <option name="width" value="1280" />
     <option name="height" value="777" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -249,6 +365,21 @@
             <path>
               <item name="multiple-loan" type="b2602c69:ProjectViewProjectNode" />
               <item name="multiple-loan" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="multiple-loan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="multiple-loan" type="462c0819:PsiDirectoryNode" />
+              <item name="multiple-parser" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="multiple-loan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="multiple-loan" type="462c0819:PsiDirectoryNode" />
+              <item name="multiple-plugin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="multiple-loan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="multiple-loan" type="462c0819:PsiDirectoryNode" />
+              <item name="multiple-sign" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="multiple-loan" type="b2602c69:ProjectViewProjectNode" />
@@ -381,15 +512,16 @@
       <workItem from="1566178776453" duration="1345000" />
       <workItem from="1566439395501" duration="15000" />
       <workItem from="1566890975774" duration="27886000" />
-      <workItem from="1566957282971" duration="26095000" />
+      <workItem from="1566957282971" duration="26210000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63386000" />
+    <option name="totallyTimeSpent" value="63501000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Tool Output" order="7" />
@@ -400,11 +532,11 @@
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.32956383" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.47945204" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Spring" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.4885845" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.4885845" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26171243" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26171243" />
       <window_info anchor="right" id="Bean Validation" order="4" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Database" order="3" />
@@ -724,9 +856,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/multiple-frame.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -837,8 +966,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/multiple-core/src/main/java/com/multiple/frame/core/dispatch/ChannelBizDispatch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
+        <state relative-caret-position="301">
           <caret line="73" selection-start-line="73" selection-end-line="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
