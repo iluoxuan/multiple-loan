@@ -15,5 +15,6 @@
 ## 设计点 [问题点]
 * 目前的拦截器都是全局拦截器【不能针对身份做不对的拦截】
 * 参考spring cloud gateway 做【某个身份的】局部拦截器 [fix]
+* GlobalInterceptor 全局拦截器 --- 
 
 

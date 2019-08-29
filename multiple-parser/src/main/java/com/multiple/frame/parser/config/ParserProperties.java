@@ -1,5 +1,6 @@
 package com.multiple.frame.parser.config;
 
+import com.multiple.frame.parser.resouce.ResourceType;
 import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -27,5 +28,10 @@ public class ParserProperties {
      * 默认不开启
      */
     private boolean cacheStart = false;
+
+    /**
+     * 配置获取方式
+     */
+    private String resourceLoaderType = ResourceType.classpath;
 
 }
