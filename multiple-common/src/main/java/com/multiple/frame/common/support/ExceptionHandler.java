@@ -1,5 +1,7 @@
 package com.multiple.frame.common.support;
 
+import com.multiple.frame.common.base.ChannelExchange;
+
 /**
  * 异常处理
  *
@@ -8,4 +10,11 @@ package com.multiple.frame.common.support;
  */
 public interface ExceptionHandler {
 
+    /**
+     * 异常处理
+     *
+     * @param exchange
+     * @param e
+     */
+    void handlerException(ChannelExchange exchange, Exception e);
 }

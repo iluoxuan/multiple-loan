@@ -18,9 +18,9 @@ public interface ArgumentResolver {
     /**
      * 支持参数
      *
-     * @return
+     * @return exchange
      */
-    boolean supportsParameter(ChannelExchange exchange);
+    boolean supports(ChannelExchange exchange);
 
     /**
      * 处理

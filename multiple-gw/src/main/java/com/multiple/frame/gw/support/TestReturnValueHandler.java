@@ -1,7 +1,7 @@
 package com.multiple.frame.gw.support;
 
-import com.multiple.frame.common.support.ArgumentResolver;
 import com.multiple.frame.common.base.ChannelExchange;
+import com.multiple.frame.common.support.ReturnValueHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-public class TestArgumentResolver implements ArgumentResolver {
+public class TestReturnValueHandler implements ReturnValueHandler {
 
     @Override
     public boolean supports(ChannelExchange exchange) {
@@ -19,8 +19,9 @@ public class TestArgumentResolver implements ArgumentResolver {
     }
 
     @Override
-    public void resolveArgument(ChannelExchange exchange) {
+    public void handleReturnValue(ChannelExchange exchange) {
 
-        log.info("resolveArgument ----  test ");
+        log.info("handleReturnValue --- test");
+
     }
 }

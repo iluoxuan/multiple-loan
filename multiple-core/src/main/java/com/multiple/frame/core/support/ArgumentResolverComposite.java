@@ -18,7 +18,7 @@ public class ArgumentResolverComposite implements ArgumentResolver {
     private List<ArgumentResolver> argumentResolverList = Lists.newArrayList();
 
     @Override
-    public boolean supportsParameter(ChannelExchange exchange) {
+    public boolean supports(ChannelExchange exchange) {
         return getArgumentResolver(exchange).isPresent();
     }
 
@@ -36,7 +36,7 @@ public class ArgumentResolverComposite implements ArgumentResolver {
     private Optional<ArgumentResolver> getArgumentResolver(ChannelExchange exchange) {
 
         return argumentResolverList.stream()
-                .filter(argumentResolver -> argumentResolver.supportsParameter(exchange))
+                .filter(argumentResolver -> argumentResolver.supports(exchange))
                 .findFirst();
     }
 
