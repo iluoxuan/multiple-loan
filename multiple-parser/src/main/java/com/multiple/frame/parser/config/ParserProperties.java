@@ -19,7 +19,7 @@ public class ParserProperties {
     /**
      * 模板后缀 [.vm]
      */
-    private String templateSuffix;
+    private String templateSuffix = ".json";
 
     /**
      * 模板路径 [%s/req/%s]等
@@ -33,6 +33,7 @@ public class ParserProperties {
 
     /**
      * 配置获取方式
+     * {@link ResourceType}
      */
     private String resourceLoaderType = ResourceType.classpath;
 

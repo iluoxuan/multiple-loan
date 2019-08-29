@@ -7,7 +7,6 @@ import com.multiple.frame.parser.interceptor.RequestCommonParserInterceptor;
 import com.multiple.frame.parser.parser.RequestCommonParser;
 import com.multiple.frame.parser.resouce.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -22,7 +21,6 @@ import java.util.List;
  * @date: 2019/8/28
  */
 @ComponentScan
-@EnableAutoConfiguration
 @EnableConfigurationProperties(ParserProperties.class)
 @Configuration
 public class MultipleParserAutoConfig {
@@ -36,7 +34,6 @@ public class MultipleParserAutoConfig {
 
         return new MapCache();
     }
-
 
     @Bean
     @ConditionalOnMissingBean

@@ -1,0 +1,6 @@
+{
+  "appId":"appId:string",
+  "data":"bizData:object",
+  "time":"timestamp:string::s",
+  "sign":"sign:string"
+}

@@ -3,6 +3,13 @@ spring:
     name: gw
 server:
   port: 8080
+multiple:
+  sign:
+    skip-check: true
+  parser:
+    cache-start: true
+    template-suffix: '.json'
+    template-path: 'template/%s/biz/%s'
 
 
 
