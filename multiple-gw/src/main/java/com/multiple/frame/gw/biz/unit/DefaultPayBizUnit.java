@@ -1,6 +1,7 @@
-package com.multiple.frame.gw.biz.unit.defaultunit;
+package com.multiple.frame.gw.biz.unit;
 
-import com.multiple.frame.gw.biz.unit.PayBizUnit;
+import com.multiple.frame.common.base.BizUnit;
+import com.multiple.frame.gw.biz.PayBiz;
 import org.springframework.stereotype.Component;
 
 /**
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @date: 2019/8/28
  */
 @Component
-public class DefaultPayBizUnit implements PayBizUnit {
+public class DefaultPayBizUnit implements PayBiz, BizUnit {
 
     @Override
     public String getRepaymentUrl() {

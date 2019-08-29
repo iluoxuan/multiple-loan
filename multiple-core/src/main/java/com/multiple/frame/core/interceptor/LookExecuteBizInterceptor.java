@@ -1,6 +1,6 @@
 package com.multiple.frame.core.interceptor;
 
-import com.multiple.frame.common.support.ChannelBizInterceptor;
+import com.multiple.frame.common.support.GlobalInterceptor;
 import com.multiple.frame.common.base.ChannelExchange;
 import com.multiple.frame.core.handler.method.MethodMappingManager;
 import lombok.Getter;
@@ -12,7 +12,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class LookExecuteBizInterceptor implements ChannelBizInterceptor {
+public class LookExecuteBizInterceptor implements GlobalInterceptor {
 
 
     private MethodMappingManager methodMappingManager;

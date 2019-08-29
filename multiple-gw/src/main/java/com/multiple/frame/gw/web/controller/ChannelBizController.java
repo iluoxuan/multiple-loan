@@ -19,13 +19,28 @@ public class ChannelBizController {
     private BizDispatch bizDispatch;
 
     @PostMapping("/biz/{channel}/{method}")
-    public Object dispatch(@PathVariable(name = "channel") String channel,
-                           @PathVariable(name = "method") String method,
+    public Object dispatch(@PathVariable(name = "channel") String channel, @PathVariable(name = "method") String method,
                            @RequestBody String requestBody) {
 
         ChannelParam param = new ChannelParam();
         param.setChannelCode(channel);
         param.setBizMethod(method);
+        param.setRequestBody(requestBody);
+        return bizDispatch.doDispatch(param);
+    }
+
+    /**
+     * 内部 method 参数调用方法
+     *
+     * @param channel
+     * @param requestBody
+     * @return
+     */
+    @PostMapping("/biz/{channel}")
+    public Object dispatchMethod(@PathVariable(name = "channel") String channel, @RequestBody String requestBody) {
+
+        ChannelParam param = new ChannelParam();
+        param.setChannelCode(channel);
         param.setRequestBody(requestBody);
         return bizDispatch.doDispatch(param);
     }

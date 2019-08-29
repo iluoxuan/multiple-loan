@@ -11,7 +11,6 @@ import java.util.List;
  * @author: junqing.li
  * @date: 2019/8/29
  */
-@Setter
 public class ExceptionHandlerComposite implements ExceptionHandler {
 
     private List<ExceptionHandler> exceptionHandlerList = Lists.newArrayList();

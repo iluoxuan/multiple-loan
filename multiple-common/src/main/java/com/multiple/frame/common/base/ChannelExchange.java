@@ -27,6 +27,11 @@ public class ChannelExchange {
      */
     private ChannelParam channelParam;
 
+    /**
+     * 基本请求
+     */
+    private BaseRequest baseRequest;
+
     private Map<String, Object> attributes = Maps.newHashMap();
 
     public <T> T getAttribute(String name) {

@@ -2,7 +2,6 @@ package com.multiple.frame.parser;
 
 import com.multiple.frame.parser.config.ParserProperties;
 import com.multiple.frame.parser.resouce.*;
-import com.multiple.loan.parser.resouce.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

@@ -1,6 +1,6 @@
 package com.multiple.frame.core.interceptor;
 
-import com.multiple.frame.common.support.ChannelBizInterceptor;
+import com.multiple.frame.common.support.GlobalInterceptor;
 import com.multiple.frame.common.base.ChannelExchange;
 import com.multiple.frame.common.base.ExecuteInfo;
 import org.springframework.util.Assert;
@@ -10,7 +10,7 @@ import org.springframework.util.ReflectionUtils;
  * @author: junqing.li
  * @date: 2019/8/27
  */
-public class InvokerMethodBizInterceptor implements ChannelBizInterceptor {
+public class InvokerMethodBizInterceptor implements GlobalInterceptor {
 
     @Override
     public void postHandle(ChannelExchange exchange) throws Exception {

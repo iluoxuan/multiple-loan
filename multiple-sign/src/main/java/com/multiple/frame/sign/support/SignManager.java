@@ -1,4 +1,4 @@
-package com.multiple.frame.sign;
+package com.multiple.frame.sign.support;
 
 import com.multiple.frame.common.exception.ChannelSingException;
 import com.multiple.frame.sign.encrypt.SignEncrypt;
@@ -7,7 +7,6 @@ import com.multiple.frame.sign.rule.SignRule;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
@@ -23,10 +22,8 @@ import java.util.Optional;
 @Setter
 public class SignManager {
 
-    @Autowired
     private List<SignRule> signRules;
 
-    @Autowired
     private List<SignEncrypt> signEncrypts;
 
     public boolean verifySign(SignContext signContext) {

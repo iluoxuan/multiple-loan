@@ -3,12 +3,10 @@ package com.multiple.frame.common.support;
 import com.multiple.frame.common.base.ChannelExchange;
 
 /**
- * 拦截器
- *
  * @author: junqing.li
- * @date: 2019/7/19
+ * @date: 2019/8/29
  */
-public interface ChannelBizInterceptor {
+public interface Interceptor {
 
     /**
      * 处理之前
@@ -31,5 +29,4 @@ public interface ChannelBizInterceptor {
     default void afterCompletion(ChannelExchange exchange, Throwable ex) throws Exception {
 
     }
-
 }

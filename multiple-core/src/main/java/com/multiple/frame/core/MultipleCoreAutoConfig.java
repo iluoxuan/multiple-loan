@@ -1,11 +1,8 @@
 package com.multiple.frame.core;
 
 import com.multiple.frame.common.base.BizInterceptorOrder;
-import com.multiple.frame.common.support.ArgumentResolver;
-import com.multiple.frame.common.support.ChannelBizInterceptor;
-import com.multiple.frame.common.support.ExceptionHandler;
-import com.multiple.frame.common.support.ReturnValueHandler;
-import com.multiple.frame.core.config.MultipleLoanProperties;
+import com.multiple.frame.common.support.*;
+import com.multiple.frame.core.config.MultipleFrameProperties;
 import com.multiple.frame.core.dispatch.BizDispatch;
 import com.multiple.frame.core.dispatch.ChannelBizDispatch;
 import com.multiple.frame.core.handler.method.MethodMappingManager;
@@ -32,7 +29,7 @@ import java.util.List;
  * @date: 2019/8/27
  */
 @ComponentScan
-@EnableConfigurationProperties(MultipleLoanProperties.class)
+@EnableConfigurationProperties(MultipleFrameProperties.class)
 @Configuration
 public class MultipleCoreAutoConfig {
 
@@ -45,14 +42,14 @@ public class MultipleCoreAutoConfig {
     @Order(BizInterceptorOrder.invokerMethod)
     @Bean
     @ConditionalOnMissingBean(name = "invokerMethodBizInterceptor")
-    public ChannelBizInterceptor invokerMethodBizInterceptor() {
+    public GlobalInterceptor invokerMethodBizInterceptor() {
         return new InvokerMethodBizInterceptor();
     }
 
     @Order(BizInterceptorOrder.lookExecute)
     @Bean
     @ConditionalOnMissingBean(name = "lookExecuteBizInterceptor")
-    public ChannelBizInterceptor lookExecuteBizInterceptor(MethodMappingManager methodMappingManager) {
+    public GlobalInterceptor lookExecuteBizInterceptor(MethodMappingManager methodMappingManager) {
         LookExecuteBizInterceptor interceptor = new LookExecuteBizInterceptor();
         interceptor.setMethodMappingManager(methodMappingManager);
         return interceptor;
@@ -62,7 +59,7 @@ public class MultipleCoreAutoConfig {
     @Order(BizInterceptorOrder.argumentResolve)
     @Bean
     @ConditionalOnMissingBean(name = "requestResolverBizInterceptor")
-    public ChannelBizInterceptor requestResolverBizInterceptor(List<ArgumentResolver> argumentResolvers) {
+    public GlobalInterceptor requestResolverBizInterceptor(List<ArgumentResolver> argumentResolvers) {
         RequestResolverBizInterceptor interceptor = new RequestResolverBizInterceptor();
         ArgumentResolverComposite composite = new ArgumentResolverComposite();
         composite.addArgumentResolver(argumentResolvers);
@@ -73,7 +70,7 @@ public class MultipleCoreAutoConfig {
     @Order(BizInterceptorOrder.returnValueHandler)
     @Bean
     @ConditionalOnMissingBean(name = "returnValueBizInterceptor")
-    public ChannelBizInterceptor returnValueBizInterceptor(List<ReturnValueHandler> returnValueHandlers) {
+    public GlobalInterceptor returnValueBizInterceptor(List<ReturnValueHandler> returnValueHandlers) {
         ReturnValueBizInterceptor interceptor = new ReturnValueBizInterceptor();
         ReturnValueHandlerComposite composite = new ReturnValueHandlerComposite();
         composite.addReturnValueHandler(returnValueHandlers);
@@ -86,17 +83,17 @@ public class MultipleCoreAutoConfig {
     public ExceptionHandlerComposite exceptionHandlerComposite(List<ExceptionHandler> exceptionHandlers) {
 
         ExceptionHandlerComposite composite = new ExceptionHandlerComposite();
-        composite.setExceptionHandlerList(exceptionHandlers);
+        composite.addExceptionHandlers(exceptionHandlers);
         return composite;
     }
 
 
     @Bean
     @ConditionalOnMissingBean
-    public BizDispatch bizDispatch(List<ChannelBizInterceptor> channelBizInterceptorList,
+    public BizDispatch bizDispatch(List<Interceptor> interceptors,
                                    ExceptionHandlerComposite exceptionHandlerComposite) {
         ChannelBizDispatch dispatch = new ChannelBizDispatch();
-        dispatch.setChannelInterceptors(channelBizInterceptorList);
+        dispatch.setInterceptors(interceptors);
         dispatch.setExceptionHandlerComposite(exceptionHandlerComposite);
         return dispatch;
     }

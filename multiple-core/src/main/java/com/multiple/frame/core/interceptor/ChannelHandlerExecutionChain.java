@@ -1,11 +1,16 @@
 package com.multiple.frame.core.interceptor;
 
-import com.multiple.frame.common.support.ChannelBizInterceptor;
 import com.multiple.frame.common.base.ChannelExchange;
+import com.multiple.frame.common.support.FrameInterceptor;
+import com.multiple.frame.common.support.GlobalInterceptor;
+import com.multiple.frame.common.support.Interceptor;
 import lombok.extern.slf4j.Slf4j;
+import org.assertj.core.util.Lists;
+import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * 原型对象 需要计算下标
@@ -17,7 +22,7 @@ import java.util.List;
 public class ChannelHandlerExecutionChain {
 
 
-    private List<ChannelBizInterceptor> interceptorList;
+    private List<Interceptor> interceptorList = Lists.newArrayList();
 
     /**
      * 拦截器 先执行的 最后执行 触发
@@ -25,9 +30,26 @@ public class ChannelHandlerExecutionChain {
     private int interceptorIndex = -1;
 
 
-    public ChannelHandlerExecutionChain(List<ChannelBizInterceptor> interceptorList) {
-        this.interceptorList = interceptorList;
+    public ChannelHandlerExecutionChain(List<Interceptor> interceptorList, Set<String> interceptorKeys) {
+
+        Assert.notNull(interceptorKeys, "interceptor config keys is null");
+
+        for (Interceptor interceptor : interceptorList) {
+
+            if (interceptor instanceof GlobalInterceptor) {
+                this.interceptorList.add(interceptor);
+                continue;
+            }
+
+            FrameInterceptor frameInterceptor = (FrameInterceptor) interceptor;
+            if (interceptorKeys.contains(frameInterceptor.nameKey())) {
+                this.interceptorList.add(interceptor);
+            }
+        }
+
+
     }
+
 
     /**
      * Apply preHandle methods of registered interceptors.
@@ -36,10 +58,10 @@ public class ChannelHandlerExecutionChain {
      * DispatcherServlet assumes that this interceptor has already dealt with the response itself.
      */
     public boolean applyPreHandle(ChannelExchange exchange) throws Exception {
-        ChannelBizInterceptor[] interceptors = getInterceptors();
+        Interceptor[] interceptors = getInterceptors();
         if (!ObjectUtils.isEmpty(interceptors)) {
             for (int i = 0; i < interceptors.length; i++) {
-                ChannelBizInterceptor interceptor = interceptors[i];
+                Interceptor interceptor = interceptors[i];
                 if (!interceptor.preHandle(exchange)) {
                     triggerAfterCompletion(exchange, null);
                     return false;
@@ -50,18 +72,18 @@ public class ChannelHandlerExecutionChain {
         return true;
     }
 
-    private ChannelBizInterceptor[] getInterceptors() {
-        return this.interceptorList.toArray(new ChannelBizInterceptor[this.interceptorList.size()]);
+    private Interceptor[] getInterceptors() {
+        return this.interceptorList.toArray(new Interceptor[this.interceptorList.size()]);
     }
 
     /**
      * Apply postHandle methods of registered interceptors.
      */
     public void applyPostHandle(ChannelExchange exchange) throws Exception {
-        ChannelBizInterceptor[] interceptors = getInterceptors();
+        Interceptor[] interceptors = getInterceptors();
         if (!ObjectUtils.isEmpty(interceptors)) {
             for (int i = interceptors.length - 1; i >= 0; i--) {
-                ChannelBizInterceptor interceptor = interceptors[i];
+                Interceptor interceptor = interceptors[i];
                 interceptor.postHandle(exchange);
             }
         }
@@ -74,10 +96,10 @@ public class ChannelHandlerExecutionChain {
     public void triggerAfterCompletion(ChannelExchange exchange, Throwable ex)
             throws Exception {
 
-        ChannelBizInterceptor[] interceptors = getInterceptors();
+        Interceptor[] interceptors = getInterceptors();
         if (!ObjectUtils.isEmpty(interceptors)) {
             for (int i = this.interceptorIndex; i >= 0; i--) {
-                ChannelBizInterceptor interceptor = interceptors[i];
+                Interceptor interceptor = interceptors[i];
                 try {
                     interceptor.afterCompletion(exchange, ex);
                 } catch (Throwable ex2) {
@@ -87,7 +109,7 @@ public class ChannelHandlerExecutionChain {
         }
     }
 
-    public void addInterceptor(ChannelBizInterceptor interceptor) {
+    public void addInterceptor(Interceptor interceptor) {
         interceptorList.add(interceptor);
     }
 

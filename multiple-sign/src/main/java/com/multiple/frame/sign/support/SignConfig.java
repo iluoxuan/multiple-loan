@@ -1,4 +1,4 @@
-package com.multiple.frame.sign;
+package com.multiple.frame.sign.support;
 
 import com.multiple.frame.common.exception.ChannelSingException;
 import lombok.Data;

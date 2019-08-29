@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @ConfigurationProperties(prefix = "multiple.frame")
 @Configuration
-public class MultipleLoanProperties {
+public class MultipleFrameProperties {
 
 
 }

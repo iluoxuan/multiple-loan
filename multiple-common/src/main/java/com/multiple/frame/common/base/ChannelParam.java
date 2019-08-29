@@ -1,9 +1,11 @@
 package com.multiple.frame.common.base;
 
+import com.google.common.collect.Sets;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.validation.constraints.NotEmpty;
+import java.util.Set;
 
 /**
  * @author: junqing.li
@@ -35,7 +37,13 @@ public class ChannelParam {
     private String requestBody;
 
     /**
+     * 启用的拦截器
+     */
+    private Set<String> interceptorKeys = Sets.newHashSet();
+
+    /**
      * 是 bodymethod 方式
+     *
      * @return
      */
     public boolean isBodyMethod() {

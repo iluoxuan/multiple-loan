@@ -1,7 +1,7 @@
 package com.multiple.frame.core.interceptor;
 
 import com.multiple.frame.common.base.ChannelExchange;
-import com.multiple.frame.common.support.ChannelBizInterceptor;
+import com.multiple.frame.common.support.GlobalInterceptor;
 import com.multiple.frame.core.support.ReturnValueHandlerComposite;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Setter
 @Slf4j
-public class ReturnValueBizInterceptor implements ChannelBizInterceptor {
+public class ReturnValueBizInterceptor implements GlobalInterceptor {
 
     private ReturnValueHandlerComposite returnValueHandlerComposite;
 

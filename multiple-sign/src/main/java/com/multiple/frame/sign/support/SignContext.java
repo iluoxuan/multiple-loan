@@ -1,4 +1,4 @@
-package com.multiple.frame.sign;
+package com.multiple.frame.sign.support;
 
 import com.multiple.frame.sign.rule.SignRuleParam;
 import lombok.Data;
