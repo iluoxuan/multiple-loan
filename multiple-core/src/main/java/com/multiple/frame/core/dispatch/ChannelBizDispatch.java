@@ -1,6 +1,6 @@
 package com.multiple.frame.core.dispatch;
 
-import com.multiple.frame.common.base.ChannelBizInterceptor;
+import com.multiple.frame.common.support.ChannelBizInterceptor;
 import com.multiple.frame.common.base.ChannelExchange;
 import com.multiple.frame.common.base.ChannelParam;
 import com.multiple.frame.common.base.LocalContext;

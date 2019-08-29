@@ -1,13 +1,16 @@
 package com.multiple.frame.core;
 
+import com.multiple.frame.common.support.ArgumentResolver;
 import com.multiple.frame.common.base.BizInterceptorOrder;
-import com.multiple.frame.common.base.ChannelBizInterceptor;
+import com.multiple.frame.common.support.ChannelBizInterceptor;
+import com.multiple.frame.core.config.MultipleLoanProperties;
 import com.multiple.frame.core.dispatch.BizDispatch;
 import com.multiple.frame.core.dispatch.ChannelBizDispatch;
-import com.multiple.frame.core.config.MultipleLoanProperties;
-import com.multiple.frame.core.handler.MethodMappingManager;
+import com.multiple.frame.core.handler.method.MethodMappingManager;
 import com.multiple.frame.core.interceptor.InvokerMethodBizInterceptor;
 import com.multiple.frame.core.interceptor.LookExecuteBizInterceptor;
+import com.multiple.frame.core.interceptor.RequestResolverBizInterceptor;
+import com.multiple.frame.core.support.ArgumentResolverComposite;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -47,6 +50,18 @@ public class MultipleCoreAutoConfig {
     public ChannelBizInterceptor lookExecuteBizInterceptor(MethodMappingManager methodMappingManager) {
         LookExecuteBizInterceptor interceptor = new LookExecuteBizInterceptor();
         interceptor.setMethodMappingManager(methodMappingManager);
+        return interceptor;
+    }
+
+
+    @Order(BizInterceptorOrder.argumentResolve)
+    @Bean
+    @ConditionalOnMissingBean(name = "requestResolverBizInterceptor")
+    public ChannelBizInterceptor requestResolverBizInterceptor(List<ArgumentResolver> argumentResolvers) {
+        RequestResolverBizInterceptor interceptor = new RequestResolverBizInterceptor();
+        ArgumentResolverComposite composite = new ArgumentResolverComposite();
+        composite.addArgumentResolver(argumentResolvers);
+        interceptor.setArgumentResolverComposite(composite);
         return interceptor;
     }
 

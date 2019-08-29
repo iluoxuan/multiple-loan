@@ -1,4 +1,6 @@
-package com.multiple.frame.common.base;
+package com.multiple.frame.common.support;
+
+import com.multiple.frame.common.base.ChannelExchange;
 
 /**
  * 拦截器

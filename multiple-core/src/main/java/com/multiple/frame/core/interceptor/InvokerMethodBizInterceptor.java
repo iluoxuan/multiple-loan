@@ -1,6 +1,6 @@
 package com.multiple.frame.core.interceptor;
 
-import com.multiple.frame.common.base.ChannelBizInterceptor;
+import com.multiple.frame.common.support.ChannelBizInterceptor;
 import com.multiple.frame.common.base.ChannelExchange;
 import com.multiple.frame.common.base.ExecuteInfo;
 import org.springframework.util.Assert;

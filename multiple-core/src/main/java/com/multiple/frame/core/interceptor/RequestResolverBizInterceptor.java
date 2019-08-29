@@ -2,25 +2,24 @@ package com.multiple.frame.core.interceptor;
 
 import com.multiple.frame.common.support.ChannelBizInterceptor;
 import com.multiple.frame.common.base.ChannelExchange;
-import com.multiple.frame.core.handler.method.MethodMappingManager;
-import lombok.Getter;
+import com.multiple.frame.core.support.ArgumentResolverComposite;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author: junqing.li
- * @date: 2019/8/27
+ * @date: 2019/8/29
  */
-@Getter
 @Setter
-public class LookExecuteBizInterceptor implements ChannelBizInterceptor {
+@Slf4j
+public class RequestResolverBizInterceptor implements ChannelBizInterceptor {
 
-
-    private MethodMappingManager methodMappingManager;
+    private ArgumentResolverComposite argumentResolverComposite;
 
     @Override
     public boolean preHandle(ChannelExchange exchange) throws Exception {
 
-        methodMappingManager.handler(exchange);
+        argumentResolverComposite.resolveArgument(exchange);
 
         return true;
     }
