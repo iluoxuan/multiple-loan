@@ -34,6 +34,7 @@ public class ChannelHandlerExecutionChain {
 
         Assert.notNull(interceptorKeys, "interceptor config keys is null");
 
+        // TODO 需要在拦截器初始化之前
         for (Interceptor interceptor : interceptorList) {
 
             if (interceptor instanceof GlobalInterceptor) {

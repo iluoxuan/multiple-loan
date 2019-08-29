@@ -1,6 +1,15 @@
 {
-  "appId":"appId:string",
-  "data":"bizData:object",
-  "time":"timestamp:string::s",
-  "sign":"sign:string"
+
+  "mapping":{
+    "appId":"appId:string",
+    "data":"bizData:object",
+    "time":"timestamp:string::s",
+    "sign":"sign:string"
+  },
+
+  "biz":{
+    "interceptorKeys":"methodMappingUri",
+    "unit":"default"
+  }
+
 }

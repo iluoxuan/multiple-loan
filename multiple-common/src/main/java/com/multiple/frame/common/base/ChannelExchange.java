@@ -27,6 +27,11 @@ public class ChannelExchange {
      */
     private ChannelParam channelParam;
 
+    /**
+     * 业务功能配置
+     */
+    private BizFunctionConfig bizFunctionConfig;
+
 
     private Map<String, Object> attributes = Maps.newHashMap();
 

@@ -37,11 +37,6 @@ public class ChannelParam {
     private String requestBody;
 
     /**
-     * 启用的拦截器
-     */
-    private Set<String> interceptorKeys = Sets.newHashSet();
-
-    /**
      * 是 bodymethod 方式
      *
      * @return

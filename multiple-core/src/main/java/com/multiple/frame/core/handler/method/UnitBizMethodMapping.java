@@ -2,7 +2,6 @@ package com.multiple.frame.core.handler.method;
 
 import com.multiple.frame.common.base.*;
 import com.multiple.frame.common.utils.ReflectUtils;
-import com.multiple.frame.core.handler.method.AbstractMethodMapping;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -35,7 +34,7 @@ public class UnitBizMethodMapping extends AbstractMethodMapping {
     protected void look0(ChannelExchange exchange) {
 
         // 逻辑单元
-        String unitBiz = LocalContext.getCurrentContext().unitBiz();
+        String unitBiz = exchange.getBizFunctionConfig().getBizUnit();
         unitBiz = StringUtils.isBlank(unitBiz) ? BizUnit.defaultUnit : unitBiz;
 
         // 找到对应的逻辑执行单元

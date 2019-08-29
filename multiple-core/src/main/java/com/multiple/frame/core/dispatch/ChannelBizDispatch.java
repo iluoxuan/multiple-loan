@@ -5,6 +5,7 @@ import com.multiple.frame.common.base.ChannelParam;
 import com.multiple.frame.common.base.LocalContext;
 import com.multiple.frame.common.exception.ChannelException;
 import com.multiple.frame.common.support.Interceptor;
+import com.multiple.frame.core.config.MultipleFrameProperties;
 import com.multiple.frame.core.interceptor.ChannelHandlerExecutionChain;
 import com.multiple.frame.core.support.ExceptionHandlerComposite;
 import lombok.Getter;
@@ -29,6 +30,8 @@ public class ChannelBizDispatch implements BizDispatch {
     private List<Interceptor> interceptors;
 
     private ExceptionHandlerComposite exceptionHandlerComposite;
+
+    private MultipleFrameProperties multipleFrameProperties;
 
 
     /**
@@ -96,7 +99,8 @@ public class ChannelBizDispatch implements BizDispatch {
 
     private ChannelHandlerExecutionChain getExecuteChain(ChannelExchange exchange) {
 
-        return new ChannelHandlerExecutionChain(interceptors, exchange.getChannelParam().getInterceptorKeys());
+        return new ChannelHandlerExecutionChain(interceptors,
+                multipleFrameProperties.getByChannel(exchange.getChannelParam().getChannelCode()));
     }
 
 }
