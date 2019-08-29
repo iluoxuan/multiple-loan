@@ -1,20 +1,15 @@
 package com.multiple.frame.sign.support;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.parser.Feature;
-import com.multiple.frame.common.base.BaseRequest;
 import com.multiple.frame.common.base.ChannelExchange;
 import com.multiple.frame.common.base.ExecuteInfo;
 import com.multiple.frame.common.support.GlobalInterceptor;
 import com.multiple.frame.sign.annotation.SignCheck;
 import com.multiple.frame.sign.config.SignProperties;
-import com.multiple.frame.sign.rule.SignRuleParam;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.AnnotationUtils;
 
-import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -34,32 +29,24 @@ public abstract class AbstractSignCheckBizInterceptor implements GlobalIntercept
     @Override
     public boolean preHandle(ChannelExchange exchange) throws Exception {
 
-        BaseRequest baseRequest = exchange.getBaseRequest();
         if (!isNeedCheckSign(exchange.getExecuteInfo())) {
             return true;
         }
 
-        SignContext signContext = new SignContext();
-        signContext.setSign(baseRequest.getSign());
-        signContext.setSignConfig(createSignConfig(exchange, signProperties));
-        SignRuleParam signRuleParam = new SignRuleParam();
-        signRuleParam.setAppId(baseRequest.getAppId());
-        signRuleParam.setDataContent(baseRequest.getData());
-        signRuleParam.setDataMap(JSON.parseObject(exchange.getChannelParam().getRequestBody(), Map.class, Feature.OrderedField));
-        signContext.setSignRuleParam(signRuleParam);
+        SignContext signContext = createSignContext(exchange, signProperties);
 
         return signManager.verifySign(signContext);
 
     }
 
     /**
-     * 生成 签名配置
+     * 生成 签名山下文
      *
      * @param exchange
      * @param signProperties
      * @return
      */
-    protected abstract SignConfig createSignConfig(ChannelExchange exchange, SignProperties signProperties);
+    protected abstract SignContext createSignContext(ChannelExchange exchange, SignProperties signProperties);
 
     private boolean isNeedCheckSign(ExecuteInfo executeInfo) {
 

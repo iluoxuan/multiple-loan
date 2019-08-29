@@ -37,4 +37,9 @@ public class ParserProperties {
      */
     private String resourceLoaderType = ResourceType.classpath;
 
+    /**
+     * 请求公用部分
+     */
+    private String commonRequest = "request";
+
 }

@@ -1,6 +1,7 @@
 package com.multiple.frame.parser.interceptor;
 
 import com.multiple.frame.common.base.ChannelExchange;
+import com.multiple.frame.common.base.ChannelParam;
 import com.multiple.frame.common.support.GlobalInterceptor;
 import com.multiple.frame.parser.config.ParserProperties;
 import com.multiple.frame.parser.parser.RequestCommonParser;
@@ -29,11 +30,18 @@ public class RequestCommonParserInterceptor implements GlobalInterceptor {
     @Override
     public boolean preHandle(ChannelExchange exchange) throws Exception {
 
-        TemplateResource resource = resourceManager.getResource(parserProperties.getTemplatePath(), parserProperties.getResourceLoaderType());
+        TemplateResource resource = resourceManager.getResource(createTemplatePath(exchange.getChannelParam()),
+                parserProperties.getResourceLoaderType());
         RequestCommonTemplate template = requestCommonParser.parser(resource.getData());
 
         exchange.getAttributes().put(requestParserData, template);
 
         return true;
+    }
+
+    private String createTemplatePath(ChannelParam param) {
+        String format = parserProperties.getTemplatePath();
+        return String.format(format, param.getChannelCode(), parserProperties.getCommonRequest())
+                + parserProperties.getTemplateSuffix();
     }
 }
