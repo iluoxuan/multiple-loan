@@ -2,6 +2,7 @@ package com.multiple.frame.parser.config;
 
 import com.multiple.frame.parser.resouce.ResourceType;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * @author: junqing.li
  * @date: 2019/8/28
  */
+@Setter
 @Getter
 @ConfigurationProperties(prefix = "multiple.parser")
 @Configuration

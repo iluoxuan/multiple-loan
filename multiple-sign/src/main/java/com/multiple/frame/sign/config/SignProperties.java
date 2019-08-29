@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * @author: junqing.li
  * @date: 2019/8/29
  */
+@Setter
 @Getter
 @Configuration
 @ConfigurationProperties(prefix = "multiple.sign")
