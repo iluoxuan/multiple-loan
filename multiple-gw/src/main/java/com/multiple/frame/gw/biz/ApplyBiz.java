@@ -16,7 +16,9 @@ public interface ApplyBiz extends ChannelInfo {
      * @param
      * @param <R> 返回实体
      */
-    <R> R userCheck();
+    default <R> R userCheck() {
+        throw new UnsupportedOperationException();
+    }
 
     /**
      * 订单申请
@@ -24,17 +26,23 @@ public interface ApplyBiz extends ChannelInfo {
      * @param
      * @return 返回实体
      */
-    <R> R orderApply();
+    default <R> R orderApply() {
+        throw new UnsupportedOperationException();
+    }
 
     /**
      * 获取授信结果
      */
-    <R> R getApproveResult();
+    default <R> R getApproveResult() {
+        throw new UnsupportedOperationException();
+    }
 
     /**
      * 获取订单状态
      */
-    <R> R getOrderStatus();
+    default <R> R getOrderStatus() {
+        throw new UnsupportedOperationException();
+    }
 
     /**
      * 保存基本信息
