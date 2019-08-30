@@ -20,9 +20,4 @@ public class SignProperties {
      */
     private boolean skipCheck = false;
 
-    /**
-     * 我方私钥
-     */
-    private String privateKey;
-
 }

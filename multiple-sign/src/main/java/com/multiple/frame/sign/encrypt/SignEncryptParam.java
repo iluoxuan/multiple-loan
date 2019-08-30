@@ -13,4 +13,20 @@ public class SignEncryptParam {
 
     private String sign;
 
+
+    /**
+     * 我方私钥
+     *
+     * @return
+     */
+    private String privateKey;
+
+    /**
+     * 渠道方公钥
+     *
+     * @return
+     */
+    private String channelPublicKey;
+
+
 }

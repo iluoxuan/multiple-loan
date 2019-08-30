@@ -14,7 +14,7 @@ public interface SignEncrypt {
      *
      * @return
      */
-    SignEncryptName name();
+    SignEncryptName encryptType();
 
     /**
      * 验签
