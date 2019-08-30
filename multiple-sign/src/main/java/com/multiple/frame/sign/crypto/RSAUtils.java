@@ -51,7 +51,7 @@ public class RSAUtils {
     }
 
     /**
-     * 取得公钥，并转化为String类型
+     * 获取公钥
      *
      * @param keyMap
      * @return
@@ -63,7 +63,7 @@ public class RSAUtils {
     }
 
     /**
-     * 取得私钥，并转化为String类型
+     * 取得私钥
      *
      * @param keyMap
      * @return
@@ -76,7 +76,7 @@ public class RSAUtils {
 
 
     /**
-     * 生成 签名
+     * 生成签名
      *
      * @param data
      * @param privateKey    私钥
