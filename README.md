@@ -19,4 +19,7 @@
 * 参考spring cloud gateway 做【某个身份的】局部拦截器 [fix]
 * GlobalInterceptor 全局拦截器 --- 
 
-
+## 要支持内部服务调用 [fix]
+* 支持http
+* 支持rpc
+* 等

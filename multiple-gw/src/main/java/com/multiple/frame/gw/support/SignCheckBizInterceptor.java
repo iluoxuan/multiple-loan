@@ -29,7 +29,7 @@ public class SignCheckBizInterceptor extends AbstractSignCheckBizInterceptor {
 
 
         SignConfig signConfig = new SignConfig();
-        signConfig.setPrivateKey(signProperties.getPrivateKey());
+        signConfig.setPrivateKey("xxxx");
         signConfig.setChannelPublicKey("xxxxxxx");
         signConfig.setEncrypt("ase");
         signConfig.setRule("ascAnd");
