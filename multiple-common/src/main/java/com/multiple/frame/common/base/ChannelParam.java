@@ -1,18 +1,16 @@
 package com.multiple.frame.common.base;
 
-import com.google.common.collect.Sets;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.validation.constraints.NotEmpty;
-import java.util.Set;
 
 /**
  * @author: junqing.li
  * @date: 2019/8/27
  */
 @Data
-public class ChannelParam {
+public class ChannelParam<T> {
 
     /**
      * 渠道编码
@@ -34,7 +32,7 @@ public class ChannelParam {
      * 渠道请求body
      */
     @NotEmpty
-    private String requestBody;
+    private T requestBody;
 
     /**
      * 是 bodymethod 方式

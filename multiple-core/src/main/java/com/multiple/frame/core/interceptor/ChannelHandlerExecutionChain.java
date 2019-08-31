@@ -43,7 +43,7 @@ public class ChannelHandlerExecutionChain {
             }
 
             FrameInterceptor frameInterceptor = (FrameInterceptor) interceptor;
-            if (interceptorKeys.contains(frameInterceptor.nameKey())) {
+            if (interceptorKeys.contains(frameInterceptor.nameKey().name())) {
                 this.interceptorList.add(interceptor);
             }
         }

@@ -75,7 +75,7 @@ public class SignManager {
         SignRule signRule = ruleOptional.get();
 
         Optional<SignEncrypt> encryptOptional = signEncrypts.stream()
-                .filter(signEncrypt -> signEncrypt.name().equals(signConfig.getEncrypt()))
+                .filter(signEncrypt -> signEncrypt.encryptType().name().equals(signConfig.getEncrypt()))
                 .findFirst();
 
         if (!encryptOptional.isPresent()) {

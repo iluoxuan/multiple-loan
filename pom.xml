@@ -87,6 +87,11 @@
                 <artifactId>multiple-parser</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>multiple-plugin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
         </dependencies>
 

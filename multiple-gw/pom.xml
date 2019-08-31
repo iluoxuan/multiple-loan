@@ -60,6 +60,10 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>multiple-parser</artifactId>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>multiple-plugin</artifactId>
+        </dependency>
 
     </dependencies>
 

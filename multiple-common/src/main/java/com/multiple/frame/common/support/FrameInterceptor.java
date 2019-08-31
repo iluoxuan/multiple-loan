@@ -10,9 +10,9 @@ public interface FrameInterceptor extends Interceptor {
 
     /**
      * 拦截器名称
-     *【配置了 才拦截】
+     * 【配置了 才拦截】
      *
      * @return
      */
-    String nameKey();
+    InterceptorKey nameKey();
 }

@@ -1,4 +1,4 @@
-package com.multiple.frame.plugin;
+package com.multiple.frame.plugin.interception;
 
 import com.multiple.frame.common.support.GlobalInterceptor;
 

@@ -2,6 +2,7 @@ package com.multiple.frame.gw.support;
 
 import com.multiple.frame.common.base.ChannelExchange;
 import com.multiple.frame.common.support.FrameInterceptor;
+import com.multiple.frame.common.support.InterceptorKey;
 import com.multiple.frame.parser.interceptor.RequestCommonParserInterceptor;
 import com.multiple.frame.parser.parser.common.RequestCommonTemplate;
 import org.apache.commons.lang3.StringUtils;
@@ -24,7 +25,7 @@ public class MethodMappingUriInterceptor implements FrameInterceptor {
 
         RequestCommonTemplate template = exchange.getAttribute(RequestCommonParserInterceptor.requestParserData);
         String method = template.getMethod();
-        if(StringUtils.isBlank(method)){
+        if (StringUtils.isBlank(method)) {
             return true;
         }
 
@@ -35,7 +36,7 @@ public class MethodMappingUriInterceptor implements FrameInterceptor {
     }
 
     @Override
-    public String nameKey() {
-        return "methodMappingUri";
+    public InterceptorKey nameKey() {
+        return GwInterceptorKey.methodMappingUri;
     }
 }

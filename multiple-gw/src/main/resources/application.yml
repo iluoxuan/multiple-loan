@@ -3,6 +3,8 @@ spring:
     name: gw
 server:
   port: 8080
+
+
 multiple:
   frame:
     interceptor-keys:
@@ -13,6 +15,11 @@ multiple:
     cache-start: true
     template-suffix: '.json'
     template-path: 'template/%s/biz/%s'
+  plugin:
+    load:
+     - name: unCompress
+       order: 1111
+
 
 
 
