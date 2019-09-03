@@ -32,11 +32,11 @@ public class FrameInit {
 
     public void init() {
 
-        initExecuteInfoByAnnotation();
+        initExecuteInfo();
 
     }
 
-    private void initExecuteInfoByAnnotation() {
+    private void initExecuteInfo() {
 
         // 扫描所有多实现接口和类
         Map<String, Object> frameMap = applicationContext.getBeansWithAnnotation(FrameBiz.class);
