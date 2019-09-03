@@ -27,7 +27,7 @@ public interface ExecuteRegister {
      * @param method
      * @return
      */
-    ExecuteInfo lookUp(String channel, String method, String... unitBiz);
+    ExecuteInfo lookUp(String channel, String method, List<String> unitBiz);
 
     /**
      * 所有的

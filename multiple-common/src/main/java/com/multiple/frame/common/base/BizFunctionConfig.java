@@ -1,8 +1,10 @@
 package com.multiple.frame.common.base;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import lombok.Data;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -19,6 +21,7 @@ public class BizFunctionConfig {
 
     /**
      * 要启用的业务
+     * 默认为空
      */
-    private String bizUnit;
+    private List<String> bizUnit = Lists.newArrayList();
 }

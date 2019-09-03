@@ -41,6 +41,9 @@ public class MultipleCoreAutoConfig {
     @Autowired
     private ApplicationContext applicationContext;
 
+    @Autowired
+    private MultipleFrameProperties multipleFrameProperties;
+
 
     @Bean
     public MethodMappingManager methodMappingManager() {
@@ -103,6 +106,7 @@ public class MultipleCoreAutoConfig {
         ChannelBizDispatch dispatch = new ChannelBizDispatch();
         dispatch.setInterceptors(interceptors);
         dispatch.setExceptionHandlerComposite(exceptionHandlerComposite);
+        dispatch.setMultipleFrameProperties(multipleFrameProperties);
         return dispatch;
     }
 

@@ -23,7 +23,7 @@ public @interface FrameBiz {
      *
      * @return
      */
-    String channel() default "";
+    String channel() default BizUnit.defaultAnnotation;
 
     /**
      * 业务单元组

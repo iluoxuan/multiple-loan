@@ -4,6 +4,7 @@ import com.multiple.frame.common.base.*;
 import com.multiple.frame.common.exception.ChannelException;
 import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
+import org.assertj.core.util.Lists;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.util.Assert;
@@ -59,7 +60,7 @@ public class FrameInit {
                 executeInfo.setBean(beanObject);
                 executeInfo.setChannel(getChannel(beanObject, frameBiz));
                 executeInfo.setMethod(method);
-                executeInfo.setUnitBiz(new String[]{getBizUnit(beanObject, frameBiz)});
+                executeInfo.setUnitBiz(Lists.newArrayList(getBizUnit(beanObject, frameBiz)));
                 executeRegister.register(executeInfo);
             });
         });

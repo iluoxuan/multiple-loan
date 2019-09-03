@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.lang.reflect.Method;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -28,7 +29,7 @@ public class ExecuteInfo {
 
     private String channel;
 
-    private String[] unitBiz;
+    private List<String> unitBiz;
 
     public static boolean isNull(ExecuteInfo info) {
 

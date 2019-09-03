@@ -30,7 +30,7 @@ public class ChannelExchange {
     /**
      * 业务功能配置
      */
-    private BizFunctionConfig bizFunctionConfig;
+    private BizFunctionConfig bizFunctionConfig = new BizFunctionConfig();
 
 
     private Map<String, Object> attributes = Maps.newHashMap();

@@ -1,11 +1,13 @@
 package com.multiple.frame.core.register;
 
 import com.google.common.collect.Maps;
+import com.multiple.frame.common.base.BizUnit;
+import com.multiple.frame.common.base.DefaultBiz;
 import com.multiple.frame.common.base.ExecuteInfo;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -14,7 +16,12 @@ import java.util.stream.Collectors;
  */
 public class DefaultExecuteRegister implements ExecuteRegister {
 
+    /**
+     * 已经有注册的缓存
+     * 【没有注册的渠道】
+     */
     private static final Map<String, ExecuteInfo> executeMap = Maps.newHashMap();
+
 
     @Override
     public void register(ExecuteInfo executeInfo) {
@@ -28,12 +35,21 @@ public class DefaultExecuteRegister implements ExecuteRegister {
     }
 
     @Override
-    public ExecuteInfo lookUp(String channel, String method, String[] unitBiz) {
+    public ExecuteInfo lookUp(String channel, String method, List<String> unitBiz) {
 
         String cacheKey = getCacheKey(channel,
                 unitBiz, method);
 
+        ExecuteInfo executeInfo = executeMap.get(cacheKey);
+
+        if (!ExecuteInfo.isNull(executeInfo)) {
+            return executeInfo;
+        }
+
+        // 为空说明，对应的注册成default了
+        cacheKey = getCacheKey(DefaultBiz.defaultBiz, unitBiz, method);
         return executeMap.get(cacheKey);
+
     }
 
     @Override
@@ -45,13 +61,13 @@ public class DefaultExecuteRegister implements ExecuteRegister {
     }
 
 
-    private String getCacheKey(String channel, String[] unitBiz, String method) {
+    private String getCacheKey(String channel, List<String> unitBiz, String method) {
 
         String format = "%s-%s-%s";
-        if (Objects.isNull(unitBiz)) {
-            return String.format(format, channel, "", method);
+        if (CollectionUtils.isEmpty(unitBiz)) {
+            return String.format(format, channel, BizUnit.defaultBiz, method);
         }
-        return String.format(format, channel, unitBiz[0], method);
+        return String.format(format, channel, unitBiz.get(0), method);
     }
 
     @Override

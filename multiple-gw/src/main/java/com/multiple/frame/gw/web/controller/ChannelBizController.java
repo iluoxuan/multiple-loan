@@ -3,10 +3,7 @@ package com.multiple.frame.gw.web.controller;
 import com.multiple.frame.common.base.ChannelParam;
 import com.multiple.frame.core.dispatch.BizDispatch;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author: junqing.li
@@ -43,6 +40,11 @@ public class ChannelBizController {
         param.setChannelCode(channel);
         param.setRequestBody(requestBody);
         return bizDispatch.doDispatch(param);
+    }
+
+    @GetMapping("/test")
+    public String test(){
+        return "xxxx";
     }
 
 }

@@ -1,12 +1,10 @@
 package com.multiple.frame.core.handler.method;
 
-import com.google.common.collect.Maps;
 import com.multiple.frame.common.base.ChannelExchange;
-import com.multiple.frame.common.base.ExecuteInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.Assert;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author: junqing.li
@@ -25,6 +23,8 @@ public class MethodMappingManager {
                 methodMapping.look(exchange);
             }
         }
+
+        Assert.notNull(exchange.getExecuteInfo(), "no find execute info");
 
     }
 

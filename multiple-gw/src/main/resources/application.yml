@@ -3,6 +3,8 @@ spring:
     name: gw
 server:
   port: 8080
+  servlet:
+    context-path: /gw
 
 
 multiple:
@@ -19,6 +21,20 @@ multiple:
     load:
      - name: unCompress
        order: 1111
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: heapdump,liquibase,loggers,prometheus,threaddump,info,metrics,health
+
+
+
+
+
+
+
 
 
 
