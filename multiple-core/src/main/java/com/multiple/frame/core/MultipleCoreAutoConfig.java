@@ -2,7 +2,7 @@ package com.multiple.frame.core;
 
 import com.multiple.frame.common.base.BizInterceptorOrder;
 import com.multiple.frame.common.support.*;
-import com.multiple.frame.core.config.FrameInit;
+import com.multiple.frame.core.register.FrameInit;
 import com.multiple.frame.core.config.MultipleFrameProperties;
 import com.multiple.frame.core.dispatch.BizDispatch;
 import com.multiple.frame.core.dispatch.ChannelBizDispatch;

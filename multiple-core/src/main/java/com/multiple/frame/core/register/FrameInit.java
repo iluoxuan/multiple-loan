@@ -1,12 +1,9 @@
-package com.multiple.frame.core.config;
+package com.multiple.frame.core.register;
 
-import com.multiple.frame.common.base.BizUnit;
-import com.multiple.frame.common.base.ChannelInfo;
-import com.multiple.frame.common.base.ExecuteInfo;
-import com.multiple.frame.common.base.FrameBiz;
+import com.multiple.frame.common.base.*;
 import com.multiple.frame.common.exception.ChannelException;
-import com.multiple.frame.core.register.ExecuteRegister;
 import lombok.Setter;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.util.Assert;
@@ -76,14 +73,15 @@ public class FrameInit {
             return info.code();
         }
         String channel = frameBiz.channel();
-        Assert.hasText(channel, "please @frameBiz config channel");
-        return channel;
+        return StringUtils.isBlank(channel) ? DefaultBiz.defaultBiz : channel;
     }
 
     private String getBizUnit(Object beanObject, FrameBiz frameBiz) {
 
         // 注解为空
         if (Objects.nonNull(frameBiz)) {
+
+            Assert.notEmpty(frameBiz.bizUnit(), "please config @FrameBiz bizUnit");
             return frameBiz.bizUnit()[0];
         }
 
