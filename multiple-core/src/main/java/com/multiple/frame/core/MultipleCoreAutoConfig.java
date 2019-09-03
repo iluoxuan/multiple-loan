@@ -2,6 +2,7 @@ package com.multiple.frame.core;
 
 import com.multiple.frame.common.base.BizInterceptorOrder;
 import com.multiple.frame.common.support.*;
+import com.multiple.frame.core.config.FrameInit;
 import com.multiple.frame.core.config.MultipleFrameProperties;
 import com.multiple.frame.core.dispatch.BizDispatch;
 import com.multiple.frame.core.dispatch.ChannelBizDispatch;
@@ -10,11 +11,15 @@ import com.multiple.frame.core.interceptor.InvokerMethodBizInterceptor;
 import com.multiple.frame.core.interceptor.LookExecuteBizInterceptor;
 import com.multiple.frame.core.interceptor.RequestResolverBizInterceptor;
 import com.multiple.frame.core.interceptor.ReturnValueBizInterceptor;
+import com.multiple.frame.core.register.DefaultExecuteRegister;
+import com.multiple.frame.core.register.ExecuteRegister;
 import com.multiple.frame.core.support.ArgumentResolverComposite;
 import com.multiple.frame.core.support.ExceptionHandlerComposite;
 import com.multiple.frame.core.support.ReturnValueHandlerComposite;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -32,6 +37,9 @@ import java.util.List;
 @EnableConfigurationProperties(MultipleFrameProperties.class)
 @Configuration
 public class MultipleCoreAutoConfig {
+
+    @Autowired
+    private ApplicationContext applicationContext;
 
 
     @Bean
@@ -97,5 +105,20 @@ public class MultipleCoreAutoConfig {
         dispatch.setExceptionHandlerComposite(exceptionHandlerComposite);
         return dispatch;
     }
+
+    @Bean(initMethod = "init", destroyMethod = "destroy")
+    public FrameInit frameInit(ExecuteRegister executeRegister) {
+        FrameInit init = new FrameInit();
+        init.setApplicationContext(applicationContext);
+        init.setExecuteRegister(executeRegister);
+        return init;
+    }
+
+    @Bean
+    public ExecuteRegister executeRegister() {
+
+        return new DefaultExecuteRegister();
+    }
+
 
 }

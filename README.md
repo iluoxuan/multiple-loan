@@ -1,5 +1,6 @@
 # 多扩展接入项目
 
+
 ## 设计目的
 * 可以处理多供应商，商户，渠道，产品线，第三方接入 的可扩展性
 * 可插拔式，业务可以配置化
@@ -11,6 +12,8 @@
 * 核心可扩展化
 * 业务逻辑自动化/配置化
 * 
+
+
 
 
 
@@ -27,3 +30,15 @@
 ## 逻辑处理查找【支持自定义注解】[fix]
 
 * @BizUnit()
+
+
+## 多接入实现框架 
+* https://yq.aliyun.com/live/1003     闲鱼SWAK
+* https://mp.weixin.qq.com/s/iS7QjI-LSOET4cmRGo_Jow?utm_medium=hao.caibaojian.com&utm_source=hao.caibaojian.com
+
+
+
+## 扩展设计思路
+
+* 先初始化注入 
+* 

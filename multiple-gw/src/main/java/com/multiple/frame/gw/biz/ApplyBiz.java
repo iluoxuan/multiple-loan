@@ -8,7 +8,7 @@ import com.multiple.frame.common.base.ChannelInfo;
  * @author: junqing.li
  * @date: 2019/8/27
  */
-public interface ApplyBiz extends ChannelInfo {
+public interface ApplyBiz{
 
     /**
      * 申请资格校验

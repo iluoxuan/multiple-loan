@@ -19,7 +19,7 @@ public class InvokerMethodBizInterceptor implements GlobalInterceptor {
         Assert.notNull(executeInfo, "no find execute");
 
         // 执行的结果
-        Object response = ReflectionUtils.invokeMethod(executeInfo.getMethod(), executeInfo.getChannelInfo());
+        Object response = ReflectionUtils.invokeMethod(executeInfo.getMethod(), executeInfo.getBean());
 
         exchange.setResponse(response);
 

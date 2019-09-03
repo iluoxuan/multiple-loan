@@ -4,6 +4,7 @@ import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author: junqing.li
@@ -31,7 +32,7 @@ public class ChannelParam<T> {
     /**
      * 渠道请求body
      */
-    @NotEmpty
+    @NotNull
     private T requestBody;
 
     /**

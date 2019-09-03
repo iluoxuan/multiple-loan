@@ -24,7 +24,11 @@ public class ExecuteInfo {
     /**
      * 接口
      */
-    private ChannelInfo channelInfo;
+    private Object bean;
+
+    private String channel;
+
+    private String[] unitBiz;
 
     public static boolean isNull(ExecuteInfo info) {
 
@@ -32,7 +36,7 @@ public class ExecuteInfo {
             return true;
         }
 
-        return Objects.isNull(info.getMethod()) || Objects.isNull(info.getChannelInfo());
+        return Objects.isNull(info.getMethod()) || Objects.isNull(info.getBean());
     }
 
 }

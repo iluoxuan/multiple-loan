@@ -24,6 +24,7 @@ public class RpcServiceTest {
         ChannelParam param = new ChannelParam();
         param.setChannelCode(request.getChannelCode());
         param.setBizMethod(request.getMethod());
+        param.setRequestBody(request.getParam());
 
        return (RpcResponse)bizDispatch.doDispatch(param);
 
