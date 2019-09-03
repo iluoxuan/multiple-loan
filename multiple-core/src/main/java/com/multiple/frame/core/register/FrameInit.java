@@ -7,8 +7,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.assertj.core.util.Lists;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.annotation.AnnotationUtils;
-import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.ObjectUtils;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -82,7 +82,9 @@ public class FrameInit {
         // 注解为空
         if (Objects.nonNull(frameBiz)) {
 
-            Assert.notEmpty(frameBiz.bizUnit(), "please config @FrameBiz bizUnit");
+            if (ObjectUtils.isEmpty(frameBiz.bizUnit())) {
+                return BizUnit.defaultUnit;
+            }
             return frameBiz.bizUnit()[0];
         }
 

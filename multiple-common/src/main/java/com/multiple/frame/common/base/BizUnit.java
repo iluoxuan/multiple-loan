@@ -8,7 +8,6 @@ public interface BizUnit extends DefaultBiz {
 
     String defaultUnit = "default";
 
-    String defaultAnnotation = "";
 
     /**
      * 业务单元 名称
