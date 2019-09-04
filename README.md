@@ -42,3 +42,12 @@
 
 * 先初始化注入 
 * 
+
+## 寻找实现类逻辑
+
+* 初始化的时候先注册所有 @FrameBiz ，或者 实现channelInfo , unitBiz的接口
+
+* 查找的时候 先找channel下的default 或者unit 【无】
+
+* 找默认 实现default下的 unit
+

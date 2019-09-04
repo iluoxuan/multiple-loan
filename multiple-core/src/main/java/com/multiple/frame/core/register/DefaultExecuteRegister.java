@@ -8,7 +8,6 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * @author: junqing.li
@@ -53,10 +52,9 @@ public class DefaultExecuteRegister implements ExecuteRegister {
     }
 
     @Override
-    public List<ExecuteInfo> all() {
+    public Map<String, ExecuteInfo> all() {
 
-        return executeMap.entrySet().stream().map(entry -> entry.getValue())
-                .collect(Collectors.toList());
+        return executeMap;
 
     }
 

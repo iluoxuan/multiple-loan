@@ -2,10 +2,10 @@ package com.multiple.frame.core;
 
 import com.multiple.frame.common.base.BizInterceptorOrder;
 import com.multiple.frame.common.support.*;
-import com.multiple.frame.core.register.FrameInit;
 import com.multiple.frame.core.config.MultipleFrameProperties;
 import com.multiple.frame.core.dispatch.BizDispatch;
 import com.multiple.frame.core.dispatch.ChannelBizDispatch;
+import com.multiple.frame.core.endpoint.FrameEndpoint;
 import com.multiple.frame.core.handler.method.MethodMappingManager;
 import com.multiple.frame.core.interceptor.InvokerMethodBizInterceptor;
 import com.multiple.frame.core.interceptor.LookExecuteBizInterceptor;
@@ -13,10 +13,12 @@ import com.multiple.frame.core.interceptor.RequestResolverBizInterceptor;
 import com.multiple.frame.core.interceptor.ReturnValueBizInterceptor;
 import com.multiple.frame.core.register.DefaultExecuteRegister;
 import com.multiple.frame.core.register.ExecuteRegister;
+import com.multiple.frame.core.register.FrameInit;
 import com.multiple.frame.core.support.ArgumentResolverComposite;
 import com.multiple.frame.core.support.ExceptionHandlerComposite;
 import com.multiple.frame.core.support.ReturnValueHandlerComposite;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.autoconfigure.endpoint.condition.ConditionalOnEnabledEndpoint;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
@@ -122,6 +124,21 @@ public class MultipleCoreAutoConfig {
     public ExecuteRegister executeRegister() {
 
         return new DefaultExecuteRegister();
+    }
+
+
+    /**
+     * 端点配置
+     */
+    @Configuration
+    static class EndpointConfiguration {
+
+        @Bean
+        @ConditionalOnMissingBean
+        @ConditionalOnEnabledEndpoint
+        public FrameEndpoint frameEndpoint() {
+            return new FrameEndpoint();
+        }
     }
 
 

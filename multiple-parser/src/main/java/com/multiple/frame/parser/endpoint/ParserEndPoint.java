@@ -4,15 +4,15 @@ import com.multiple.frame.parser.resouce.ResourceCache;
 import com.multiple.frame.parser.resouce.ResourceManager;
 import com.multiple.frame.parser.resouce.TemplateResource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
 import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 import org.springframework.boot.actuate.endpoint.annotation.WriteOperation;
-import org.springframework.boot.actuate.endpoint.web.annotation.WebEndpoint;
 
 /**
  * @author: junqing.li
  * @date: 2019/8/28
  */
-@WebEndpoint(id = "parser")
+@Endpoint(id = "multiple-parser")
 public class ParserEndPoint {
 
     @Autowired

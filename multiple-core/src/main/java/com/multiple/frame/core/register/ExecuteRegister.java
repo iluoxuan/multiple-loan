@@ -3,6 +3,7 @@ package com.multiple.frame.core.register;
 import com.multiple.frame.common.base.ExecuteInfo;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 执行器注册
@@ -34,7 +35,7 @@ public interface ExecuteRegister {
      *
      * @return
      */
-    List<ExecuteInfo> all();
+    Map<String, ExecuteInfo> all();
 
     /**
      * 清理

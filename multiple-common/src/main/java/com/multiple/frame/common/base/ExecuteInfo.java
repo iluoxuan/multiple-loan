@@ -40,4 +40,12 @@ public class ExecuteInfo {
         return Objects.isNull(info.getMethod()) || Objects.isNull(info.getBean());
     }
 
+    @Override
+    public String toString() {
+        String format = "{\"channel\":\"%s\",\"unitBiz\":\"%s\",\"method\":\"%s\",\"bean\":\"%s\"}";
+        String methodName = Objects.isNull(method) ? "" : method.getName();
+        String beanClass = Objects.isNull(bean) ? "" : bean.getClass().toString();
+        return String.format(format, channel, unitBiz, methodName, beanClass);
+    }
+
 }

@@ -3,9 +3,19 @@ spring:
     name: gw
 server:
   port: 8080
-  servlet:
-    context-path: /gw
 
+management:
+  endpoints:
+    web:
+      exposure:
+        #加载所有的端点，默认只加载了info、health
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+    #可以关闭指定的端点
+    shutdown:
+      enabled: false
 
 multiple:
   frame:
@@ -23,11 +33,11 @@ multiple:
        order: 1111
 
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: heapdump,liquibase,loggers,prometheus,threaddump,info,metrics,health
+
+
+
+
+
 
 
 

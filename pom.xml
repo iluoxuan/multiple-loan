@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.5.RELEASE</version>
+        <version>2.0.5.RELEASE</version>
     </parent>
 
     <groupId>com.multiple.frame</groupId>
@@ -35,10 +35,6 @@
         <target.version>1.8</target.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <java.version>1.8</java.version>
-
-        <spring-boot.version>2.1.5.RELEASE</spring-boot.version>
-        <fastjson.version>1.2.55</fastjson.version>
 
     </properties>
 
@@ -46,15 +42,6 @@
     <dependencyManagement>
 
         <dependencies>
-
-
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-gateway-dependencies</artifactId>
-                <version>2.1.1.RELEASE</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
 
             <dependency>
                 <groupId>com.google.guava</groupId>
@@ -65,11 +52,6 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>1.2.38</version>
-            </dependency>
-            <dependency>
-                <groupId>org.reflections</groupId>
-                <artifactId>reflections</artifactId>
-                <version>0.9.11</version>
             </dependency>
 
             <dependency>
@@ -102,6 +84,15 @@
 
 
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
