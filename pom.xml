@@ -23,6 +23,7 @@
         <module>multiple-plugin</module>
         <module>multiple-gw</module>
         <module>multiple-template</module>
+        <module>multiple-swak</module>
     </modules>
 
 
@@ -77,6 +78,11 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>multiple-plugin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>multiple-swak</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

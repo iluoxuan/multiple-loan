@@ -8,7 +8,6 @@
   },
 
   "biz":{
-    "interceptorKeys":"methodMappingUri",
     "unit":"default"
   }
 

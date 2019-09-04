@@ -2,6 +2,7 @@ package com.multiple.frame.gw.web.controller;
 
 import com.multiple.frame.common.base.ChannelParam;
 import com.multiple.frame.core.dispatch.BizDispatch;
+import com.multiple.frame.gw.biz.swak.SwakService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,9 @@ public class ChannelBizController {
 
     @Autowired
     private BizDispatch bizDispatch;
+
+    @Autowired
+    private SwakService swakService;
 
     @PostMapping("/biz/{channel}/{method}")
     public Object dispatch(@PathVariable(name = "channel") String channel, @PathVariable(name = "method") String method,
@@ -44,7 +48,7 @@ public class ChannelBizController {
 
     @GetMapping("/test")
     public String test(){
-        return "xxxx";
+        return swakService.test();
     }
 
 }
