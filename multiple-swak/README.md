@@ -7,6 +7,13 @@
 ## 直接写出 spring-boot starter
 * 业务使用springboot是最多的
 
+## 待设计
+
+* tag相同--> 要以接口为区分度 【fix】
+
+* 添加threadLocal 设置变量 ，兼容 SwakContext
+
+
 
 
 
