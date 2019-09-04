@@ -19,9 +19,10 @@ management:
 
 multiple:
   frame:
+    default-keys: signCheck
     interceptor-keys:
+        dc: methodMappingUri
 
-      dc: methodMappingUri
   sign:
     skip-check: true
   parser:
