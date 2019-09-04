@@ -1,5 +1,8 @@
 # 多扩展接入项目
 
+### 查看core的文档
+* ![core文档](/multiple-core/README.md)
+
 
 ## 设计目的
 * 可以处理多供应商，商户，渠道，产品线，第三方接入 的可扩展性
@@ -50,4 +53,6 @@
 * 查找的时候 先找channel下的default 或者unit 【无】
 
 * 找默认 实现default下的 unit
+
+
 
