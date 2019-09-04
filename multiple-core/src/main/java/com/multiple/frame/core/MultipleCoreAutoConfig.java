@@ -1,6 +1,5 @@
 package com.multiple.frame.core;
 
-import com.multiple.frame.common.base.BizInterceptorOrder;
 import com.multiple.frame.common.support.*;
 import com.multiple.frame.core.config.MultipleFrameProperties;
 import com.multiple.frame.core.dispatch.BizDispatch;
@@ -25,7 +24,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 
 import java.util.List;
 
@@ -52,14 +50,12 @@ public class MultipleCoreAutoConfig {
         return new MethodMappingManager();
     }
 
-    @Order(BizInterceptorOrder.invokerMethod)
     @Bean
     @ConditionalOnMissingBean(name = "invokerMethodBizInterceptor")
     public GlobalInterceptor invokerMethodBizInterceptor() {
         return new InvokerMethodBizInterceptor();
     }
 
-    @Order(BizInterceptorOrder.lookExecute)
     @Bean
     @ConditionalOnMissingBean(name = "lookExecuteBizInterceptor")
     public GlobalInterceptor lookExecuteBizInterceptor(MethodMappingManager methodMappingManager) {
@@ -69,7 +65,6 @@ public class MultipleCoreAutoConfig {
     }
 
 
-    @Order(BizInterceptorOrder.argumentResolve)
     @Bean
     @ConditionalOnMissingBean(name = "requestResolverBizInterceptor")
     public GlobalInterceptor requestResolverBizInterceptor(List<ArgumentResolver> argumentResolvers) {
@@ -80,7 +75,6 @@ public class MultipleCoreAutoConfig {
         return interceptor;
     }
 
-    @Order(BizInterceptorOrder.returnValueHandler)
     @Bean
     @ConditionalOnMissingBean(name = "returnValueBizInterceptor")
     public GlobalInterceptor returnValueBizInterceptor(List<ReturnValueHandler> returnValueHandlers) {

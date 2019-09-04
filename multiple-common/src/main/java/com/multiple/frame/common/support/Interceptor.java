@@ -6,7 +6,7 @@ import com.multiple.frame.common.base.ChannelExchange;
  * @author: junqing.li
  * @date: 2019/8/29
  */
-public interface Interceptor {
+public interface Interceptor  {
 
     /**
      * 处理之前

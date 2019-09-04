@@ -1,10 +1,12 @@
 package com.multiple.frame.core.interceptor;
 
+import com.multiple.frame.common.base.BizInterceptorOrder;
 import com.multiple.frame.common.support.GlobalInterceptor;
 import com.multiple.frame.common.base.ChannelExchange;
 import com.multiple.frame.core.handler.method.MethodMappingManager;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.core.Ordered;
 
 /**
  * @author: junqing.li
@@ -12,7 +14,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class LookExecuteBizInterceptor implements GlobalInterceptor {
+public class LookExecuteBizInterceptor implements GlobalInterceptor, Ordered {
 
 
     private MethodMappingManager methodMappingManager;
@@ -23,5 +25,10 @@ public class LookExecuteBizInterceptor implements GlobalInterceptor {
         methodMappingManager.handler(exchange);
 
         return true;
+    }
+
+    @Override
+    public int getOrder() {
+        return BizInterceptorOrder.lookExecute;
     }
 }

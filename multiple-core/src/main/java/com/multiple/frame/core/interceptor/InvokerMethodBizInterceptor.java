@@ -1,8 +1,10 @@
 package com.multiple.frame.core.interceptor;
 
+import com.multiple.frame.common.base.BizInterceptorOrder;
 import com.multiple.frame.common.support.GlobalInterceptor;
 import com.multiple.frame.common.base.ChannelExchange;
 import com.multiple.frame.common.base.ExecuteInfo;
+import org.springframework.core.Ordered;
 import org.springframework.util.Assert;
 import org.springframework.util.ReflectionUtils;
 
@@ -10,7 +12,7 @@ import org.springframework.util.ReflectionUtils;
  * @author: junqing.li
  * @date: 2019/8/27
  */
-public class InvokerMethodBizInterceptor implements GlobalInterceptor {
+public class InvokerMethodBizInterceptor implements GlobalInterceptor, Ordered {
 
     @Override
     public void postHandle(ChannelExchange exchange) throws Exception {
@@ -23,5 +25,10 @@ public class InvokerMethodBizInterceptor implements GlobalInterceptor {
 
         exchange.setResponse(response);
 
+    }
+
+    @Override
+    public int getOrder() {
+        return BizInterceptorOrder.invokerMethod;
     }
 }
