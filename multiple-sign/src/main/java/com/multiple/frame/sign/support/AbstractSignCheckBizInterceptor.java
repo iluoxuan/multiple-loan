@@ -2,7 +2,8 @@ package com.multiple.frame.sign.support;
 
 import com.multiple.frame.common.base.ChannelExchange;
 import com.multiple.frame.common.base.ExecuteInfo;
-import com.multiple.frame.common.support.GlobalInterceptor;
+import com.multiple.frame.common.support.FrameInterceptor;
+import com.multiple.frame.common.support.InterceptorKey;
 import com.multiple.frame.sign.annotation.SignCheck;
 import com.multiple.frame.sign.config.SignProperties;
 import lombok.Setter;
@@ -18,7 +19,7 @@ import java.util.Objects;
  */
 @Slf4j
 @Setter
-public abstract class AbstractSignCheckBizInterceptor implements GlobalInterceptor {
+public abstract class AbstractSignCheckBizInterceptor implements FrameInterceptor {
 
     @Autowired(required = false)
     protected SignManager signManager;
@@ -61,5 +62,10 @@ public abstract class AbstractSignCheckBizInterceptor implements GlobalIntercept
 
         boolean isNeed = Objects.isNull(signCheck) || signCheck.value();
         return isNeed;
+    }
+
+    @Override
+    public InterceptorKey nameKey() {
+        return () -> "SignCheck";
     }
 }

@@ -20,6 +20,7 @@ management:
 multiple:
   frame:
     interceptor-keys:
+
       dc: methodMappingUri
   sign:
     skip-check: true

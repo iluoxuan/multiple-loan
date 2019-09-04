@@ -1,6 +1,7 @@
 package com.multiple.frame.core.config;
 
 import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -24,9 +25,17 @@ public class MultipleFrameProperties {
      */
     private Map<String, Set<String>> interceptorKeys = Maps.newHashMap();
 
+    /**
+     * 默认的所有的渠道都执行
+     */
+    private Set<String> defaultKeys = Sets.newHashSet();
 
-    public Set<String> getByChannel(String channel){
-        return interceptorKeys.get(channel);
+
+    public Set<String> getByChannel(String channel) {
+
+        Set<String> result = getDefaultKeys();
+        result.addAll(interceptorKeys.get(channel));
+        return result;
     }
 
 }
