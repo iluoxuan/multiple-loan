@@ -2,7 +2,9 @@ package com.multiple.frame.swak.advice;
 
 
 import com.multiple.frame.swak.annotation.SwakBiz;
+import com.multiple.frame.swak.config.SwakConstants;
 import com.multiple.frame.swak.entity.ExecuteInfo;
+import com.multiple.frame.swak.entity.SwakContext;
 import com.multiple.frame.swak.register.SwakRegister;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,9 +22,12 @@ import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ClassUtils;
+import org.springframework.util.ObjectUtils;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * @author: junqing.li
@@ -60,7 +65,7 @@ public class SwakInterfaceAop {
             return joinPoint.proceed(args);
         }
 
-        ExecuteInfo executeInfo = swakRegister.lookUp(Lists.newArrayList(swakBiz.tags()));
+        ExecuteInfo executeInfo = swakRegister.lookUp(getContext(args).getTags());
 
         // 获取真实对象
         Class<?> clazz = AopUtils.getTargetClass(executeInfo.getTarget());
@@ -73,5 +78,20 @@ public class SwakInterfaceAop {
             bean = AopProxyUtils.getSingletonTarget(executeInfo.getTarget());
         }
         return executeMethod.invoke(bean, args);
+    }
+
+    private SwakContext getContext(Object[] args) {
+        SwakContext context = new SwakContext();
+        context.setTags(Lists.newArrayList(SwakConstants.swakDefaultBiz));
+        if (ObjectUtils.isEmpty(args)) {
+            return context;
+        }
+
+        Optional<SwakContext> optional = Arrays.stream(args).filter(object -> object.getClass()
+                .isAssignableFrom(SwakContext.class)).map(object -> (SwakContext) object).findFirst();
+        if (!optional.isPresent()) {
+            return context;
+        }
+        return optional.get();
     }
 }
