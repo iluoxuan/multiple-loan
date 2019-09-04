@@ -1,7 +1,7 @@
 # 多扩展接入项目
 
 ### 查看core的文档
-* ![core文档](/multiple-core/README.md)
+* [core文档](/multiple-core/)
 
 
 ## 设计目的
