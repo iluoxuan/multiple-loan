@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Primary
-@SwakBiz(tags = "test1")
+@SwakBiz(tags = "dc")
 public class BigMoneyTest1 implements BigMoney {
 
     @Autowired

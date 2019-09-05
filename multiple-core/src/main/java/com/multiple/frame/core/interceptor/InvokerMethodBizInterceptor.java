@@ -1,12 +1,15 @@
 package com.multiple.frame.core.interceptor;
 
 import com.multiple.frame.common.base.BizInterceptorOrder;
-import com.multiple.frame.common.support.GlobalInterceptor;
 import com.multiple.frame.common.base.ChannelExchange;
 import com.multiple.frame.common.base.ExecuteInfo;
+import com.multiple.frame.common.support.GlobalInterceptor;
+import com.multiple.frame.swak.entity.MethodExecuteInfo;
 import org.springframework.core.Ordered;
 import org.springframework.util.Assert;
 import org.springframework.util.ReflectionUtils;
+
+import java.util.Objects;
 
 /**
  * @author: junqing.li
@@ -16,6 +19,19 @@ public class InvokerMethodBizInterceptor implements GlobalInterceptor, Ordered {
 
     @Override
     public void postHandle(ChannelExchange exchange) throws Exception {
+
+
+        // 使用swak执行
+        MethodExecuteInfo methodExecuteInfo = exchange.getAttribute("swak");
+        if (Objects.nonNull(methodExecuteInfo)) {
+
+            Object response = ReflectionUtils.invokeMethod(methodExecuteInfo.getMethod(),
+                    methodExecuteInfo.getTarget());
+
+            exchange.setResponse(response);
+
+            return;
+        }
 
         ExecuteInfo executeInfo = exchange.getExecuteInfo();
         Assert.notNull(executeInfo, "no find execute");

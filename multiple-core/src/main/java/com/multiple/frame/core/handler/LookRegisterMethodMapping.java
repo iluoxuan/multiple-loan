@@ -1,4 +1,4 @@
-package com.multiple.frame.core.handler.method;
+package com.multiple.frame.core.handler;
 
 import com.multiple.frame.common.base.BizFunctionConfig;
 import com.multiple.frame.common.base.ChannelExchange;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  * @author: junqing.li
  * @date: 2019/9/3
  */
-@Order(Ordered.HIGHEST_PRECEDENCE)
+@Order(-1000)
 @Component
 public class LookRegisterMethodMapping extends AbstractMethodMapping {
 

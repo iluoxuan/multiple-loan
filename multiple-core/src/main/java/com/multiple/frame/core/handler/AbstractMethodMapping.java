@@ -1,4 +1,4 @@
-package com.multiple.frame.core.handler.method;
+package com.multiple.frame.core.handler;
 
 import com.multiple.frame.common.base.ChannelExchange;
 import lombok.extern.slf4j.Slf4j;

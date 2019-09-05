@@ -31,6 +31,8 @@ public class MultipleFrameProperties {
     private Set<String> defaultKeys = Sets.newHashSet();
 
 
+
+
     public Set<String> getByChannel(String channel) {
 
         Set<String> result = getDefaultKeys();

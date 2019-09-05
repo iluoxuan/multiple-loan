@@ -3,7 +3,7 @@ package com.multiple.frame.core.interceptor;
 import com.multiple.frame.common.base.BizInterceptorOrder;
 import com.multiple.frame.common.support.GlobalInterceptor;
 import com.multiple.frame.common.base.ChannelExchange;
-import com.multiple.frame.core.handler.method.MethodMappingManager;
+import com.multiple.frame.core.handler.MethodMappingManager;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.core.Ordered;

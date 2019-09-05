@@ -28,14 +28,14 @@ public class DefaultSwakRegister implements SwakRegister {
      * 缓存接口调用
      * channel-tag-interface
      */
-    private final static Map<String, InterfaceExecuteInfo> interfaceExecuteMap = Maps.newHashMap();
+    private final static Map<String, InterfaceExecuteInfo> interfaceExecuteCache = Maps.newHashMap();
 
     /**
      * 缓存更多的信息
      * <p>
      * channel-tag-method [按方法名称调用]
      */
-    private final static Map<String, MethodExecuteInfo> extInfoCache = Maps.newHashMap();
+    private final static Map<String, MethodExecuteInfo> methodExecuteCache = Maps.newHashMap();
 
 
     @Override
@@ -50,13 +50,17 @@ public class DefaultSwakRegister implements SwakRegister {
         String interfaceName = ClassUtils.getQualifiedName(optional.get());
         String key = String.format(DEFAULT_FORMAT, interfaceName, executeInfo.getBizCode(), executeInfo.getTags().get(0));
 
-        interfaceExecuteMap.put(key, executeInfo);
+        interfaceExecuteCache.put(key, executeInfo);
     }
 
     @Override
     public void register(MethodExecuteInfo executeInfo) {
 
 
+        String key = String.format(DEFAULT_FORMAT, executeInfo.getBizCode(),
+                executeInfo.getTags().get(0), executeInfo.getMethod().getName());
+
+        methodExecuteCache.put(key, executeInfo);
     }
 
     @Override
@@ -69,18 +73,24 @@ public class DefaultSwakRegister implements SwakRegister {
         String interfaceName = ClassUtils.getQualifiedName(optional.get());
         String key = String.format(DEFAULT_FORMAT, interfaceName, selectInfo.getBizCode(), selectInfo.getTags().get(0));
 
-        return interfaceExecuteMap.get(key);
+        return interfaceExecuteCache.get(key);
     }
 
     @Override
-    public MethodExecuteInfo lookMethod(SwakContext swakContext) {
-        return null;
+    public MethodExecuteInfo lookMethod(SwakContext swakContext, String methodName) {
+
+        //
+        String key = String.format(DEFAULT_FORMAT, swakContext.getBizCode(),
+                swakContext.getTags().get(0), methodName);
+
+        return methodExecuteCache.get(key);
     }
 
     @Override
     public void clear() {
 
-        interfaceExecuteMap.clear();
+        interfaceExecuteCache.clear();
+        methodExecuteCache.clear();
 
     }
 }

@@ -27,7 +27,13 @@ public interface SwakRegister {
 
     InterfaceExecuteInfo lookUp(InterfaceExecuteInfo executeInfo);
 
-    MethodExecuteInfo lookMethod(SwakContext swakContext);
+    /**
+     * 查询
+     * @param swakContext
+     * @param methodName
+     * @return
+     */
+    MethodExecuteInfo lookMethod(SwakContext swakContext, String methodName);
 
     /**
      * clear

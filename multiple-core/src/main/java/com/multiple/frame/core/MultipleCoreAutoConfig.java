@@ -5,7 +5,7 @@ import com.multiple.frame.core.config.MultipleFrameProperties;
 import com.multiple.frame.core.dispatch.BizDispatch;
 import com.multiple.frame.core.dispatch.ChannelBizDispatch;
 import com.multiple.frame.core.endpoint.FrameEndpoint;
-import com.multiple.frame.core.handler.method.MethodMappingManager;
+import com.multiple.frame.core.handler.MethodMappingManager;
 import com.multiple.frame.core.interceptor.InvokerMethodBizInterceptor;
 import com.multiple.frame.core.interceptor.LookExecuteBizInterceptor;
 import com.multiple.frame.core.interceptor.RequestResolverBizInterceptor;
