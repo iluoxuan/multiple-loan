@@ -99,7 +99,7 @@ public class SwakInterfaceAop {
     private Object methodInvoke(ProceedingJoinPoint joinPoint, Method method, SwakContext swakContext)
             throws Throwable {
 
-        return method.invoke(joinPoint.getThis(), joinPoint.getArgs());
+        return method.invoke(joinPoint.getTarget(), joinPoint.getArgs());
     }
 
 
@@ -115,7 +115,7 @@ public class SwakInterfaceAop {
 
         InterfaceExecuteInfo selectInfo = new InterfaceExecuteInfo();
         BeanUtils.copyProperties(swakContext, selectInfo);
-        selectInfo.setTarget(joinPoint.getThis());
+        selectInfo.setTarget(joinPoint.getTarget());
 
         // 寻找的目标执行信息
         InterfaceExecuteInfo executeInfo = swakRegister.lookUp(selectInfo);

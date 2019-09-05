@@ -4,7 +4,9 @@ import com.multiple.frame.common.base.BizInterceptorOrder;
 import com.multiple.frame.common.base.ChannelExchange;
 import com.multiple.frame.common.base.ExecuteInfo;
 import com.multiple.frame.common.support.GlobalInterceptor;
+import com.multiple.frame.swak.entity.ExecuteType;
 import com.multiple.frame.swak.entity.MethodExecuteInfo;
+import com.multiple.frame.swak.entity.SwakLocal;
 import org.springframework.core.Ordered;
 import org.springframework.util.Assert;
 import org.springframework.util.ReflectionUtils;
@@ -25,11 +27,10 @@ public class InvokerMethodBizInterceptor implements GlobalInterceptor, Ordered {
         MethodExecuteInfo methodExecuteInfo = exchange.getAttribute("swak");
         if (Objects.nonNull(methodExecuteInfo)) {
 
+            SwakLocal.getCurrent().getContext().setExecuteType(ExecuteType.methodNameInvoke);
             Object response = ReflectionUtils.invokeMethod(methodExecuteInfo.getMethod(),
                     methodExecuteInfo.getTarget());
-
             exchange.setResponse(response);
-
             return;
         }
 
