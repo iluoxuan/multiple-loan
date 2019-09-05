@@ -8,6 +8,6 @@ public interface SwakConstants {
 
     String swakDefaultBiz = "default";
 
-    String swakContext = "swakContext";
+    String swakContext = "SwakContext-%s";
 
 }

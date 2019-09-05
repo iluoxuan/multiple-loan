@@ -14,6 +14,16 @@
 * 添加threadLocal 设置变量 ，兼容 SwakContext
 
 
+## 标签冲突解决
+
+* tag1 tag2 tag3 
+
+* 有一个接口开始有 tag1 ，tag2 tag3的两个实现 ，但是有一个业务需要在tag1，tag2中都有
+
+* 
+
+
+
 
 
 

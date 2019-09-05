@@ -8,6 +8,8 @@ import com.multiple.frame.common.support.Interceptor;
 import com.multiple.frame.core.config.MultipleFrameProperties;
 import com.multiple.frame.core.interceptor.ChannelHandlerExecutionChain;
 import com.multiple.frame.core.support.ExceptionHandlerComposite;
+import com.multiple.frame.swak.entity.SwakContext;
+import com.multiple.frame.swak.entity.SwakLocal;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -49,6 +51,11 @@ public class ChannelBizDispatch implements BizDispatch {
 
         LocalContext localContext = LocalContext.getCurrentContext();
 
+        SwakContext swakContext = new SwakContext();
+        swakContext.setTags(exchange.getBizFunctionConfig().getBizUnit());
+        swakContext.setBizCode(param.getChannelCode());
+        SwakLocal.getCurrent().setContext(swakContext);
+
         try {
 
             Exception exception = null;
@@ -70,6 +77,7 @@ public class ChannelBizDispatch implements BizDispatch {
         } finally {
 
             localContext.unset();
+            SwakLocal.getCurrent().clear();
         }
 
         return exchange.getResponse();

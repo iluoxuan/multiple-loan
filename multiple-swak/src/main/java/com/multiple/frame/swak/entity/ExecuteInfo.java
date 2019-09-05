@@ -13,12 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class ExecuteInfo {
+public abstract class ExecuteInfo {
 
-    /**
-     * 目标对象
-     */
-    private Object target;
 
     /**
      * 所有的tag

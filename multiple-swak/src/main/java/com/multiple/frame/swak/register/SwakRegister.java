@@ -1,8 +1,8 @@
 package com.multiple.frame.swak.register;
 
-import com.multiple.frame.swak.entity.ExecuteInfo;
-
-import java.util.List;
+import com.multiple.frame.swak.entity.InterfaceExecuteInfo;
+import com.multiple.frame.swak.entity.MethodExecuteInfo;
+import com.multiple.frame.swak.entity.SwakContext;
 
 /**
  * @author: junqing.li
@@ -12,16 +12,22 @@ public interface SwakRegister {
 
     /**
      * 注册 执行信息
+     *
      * @param executeInfo
      */
-    void register(ExecuteInfo executeInfo);
+    void register(InterfaceExecuteInfo executeInfo);
 
     /**
-     * 寻找 执行
-     * @param tags
-     * @return
+     * 调用
+     *
+     * @param executeInfo
      */
-    ExecuteInfo lookUp(List<String> tags);
+    void register(MethodExecuteInfo executeInfo);
+
+
+    InterfaceExecuteInfo lookUp(InterfaceExecuteInfo executeInfo);
+
+    MethodExecuteInfo lookMethod(SwakContext swakContext);
 
     /**
      * clear

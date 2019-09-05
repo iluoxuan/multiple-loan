@@ -1,9 +1,11 @@
 package com.multiple.frame.swak.entity;
 
+import com.multiple.frame.swak.config.SwakConstants;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -17,5 +19,13 @@ public class SwakContext {
 
     private List<String> tags;
 
-    private String bizCode;
+    private String bizCode = SwakConstants.swakDefaultBiz;
+
+    public SwakContext(List<String> tags) {
+        this.tags = tags;
+    }
+
+    public SwakContext(String... tags) {
+        this.tags = Arrays.asList(tags);
+    }
 }
