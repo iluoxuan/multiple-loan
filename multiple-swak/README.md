@@ -21,10 +21,11 @@
 * 把可变的业务提取 成接口
 
 ```java
-@SwakInterface(desc = "发财的各种方式")
-public interface BigMoney {
 
-    String getMoreMoney(String name, String big);
+@SwakInterface(desc = "发财的各种方式")
+public interface PayBiz {
+
+    String getPayUrl(String channel, SwakContext context);
 }
 
 ```
