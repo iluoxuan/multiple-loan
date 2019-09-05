@@ -1,5 +1,8 @@
 package com.multiple.frame.gw.biz.swak;
 
+import com.multiple.frame.swak.entity.SwakContext;
+import com.multiple.frame.swak.entity.SwakLocal;
+import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +18,7 @@ public class SwakService {
 
 
     public String test() {
+        SwakLocal.getCurrent().setContext(new SwakContext(Lists.newArrayList("bigMoney2"), ""));
         return bigMoney.getMoreMoney("xxxx", "heee");
     }
 }
