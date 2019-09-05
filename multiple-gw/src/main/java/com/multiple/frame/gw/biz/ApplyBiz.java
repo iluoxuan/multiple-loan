@@ -1,6 +1,7 @@
 package com.multiple.frame.gw.biz;
 
 import com.multiple.frame.common.base.ChannelInfo;
+import com.multiple.frame.swak.annotation.SwakInterface;
 
 /**
  * 申请 业务
@@ -8,6 +9,7 @@ import com.multiple.frame.common.base.ChannelInfo;
  * @author: junqing.li
  * @date: 2019/8/27
  */
+@SwakInterface(desc = "申请业务")
 public interface ApplyBiz{
 
     /**

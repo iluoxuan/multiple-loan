@@ -24,7 +24,7 @@ public class MethodMappingManager {
             }
         }
 
-        Assert.notNull(exchange.getExecuteInfo(), "no find execute info");
+       // Assert.notNull(exchange.getExecuteInfo(), "no find execute info");
 
     }
 

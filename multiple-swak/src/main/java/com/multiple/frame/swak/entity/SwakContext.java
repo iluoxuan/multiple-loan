@@ -21,6 +21,9 @@ public class SwakContext {
 
     private String bizCode = SwakConstants.swakDefaultBiz;
 
+    private ExecuteType executeType = ExecuteType.interfaceInvoke;
+
+
     public SwakContext(List<String> tags) {
         this.tags = tags;
     }

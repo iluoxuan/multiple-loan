@@ -106,13 +106,13 @@ public class MultipleCoreAutoConfig {
         return dispatch;
     }
 
-    @Bean(initMethod = "init", destroyMethod = "destroy")
-    public FrameInit frameInit(ExecuteRegister executeRegister) {
-        FrameInit init = new FrameInit();
-        init.setApplicationContext(applicationContext);
-        init.setExecuteRegister(executeRegister);
-        return init;
-    }
+//    @Bean(initMethod = "init", destroyMethod = "destroy")
+//    public FrameInit frameInit(ExecuteRegister executeRegister) {
+//        FrameInit init = new FrameInit();
+//        init.setApplicationContext(applicationContext);
+//        init.setExecuteRegister(executeRegister);
+//        return init;
+//    }
 
     @Bean
     public ExecuteRegister executeRegister() {

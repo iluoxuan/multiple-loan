@@ -2,6 +2,7 @@ package com.multiple.frame.swak.advice;
 
 
 import com.multiple.frame.swak.annotation.SwakBiz;
+import com.multiple.frame.swak.entity.ExecuteType;
 import com.multiple.frame.swak.entity.InterfaceExecuteInfo;
 import com.multiple.frame.swak.entity.SwakContext;
 import com.multiple.frame.swak.entity.SwakLocal;
@@ -56,40 +57,28 @@ public class SwakInterfaceAop {
     @Around("annotationPoint()")
     public Object invoke(ProceedingJoinPoint joinPoint) throws Throwable {
 
+        Method method = ((MethodSignature) joinPoint.getSignature()).getMethod();
+        Object[] args = joinPoint.getArgs();
+
+        if (ClassUtils.isOriginMethod(method)) {
+            return joinPoint.proceed(args);
+        }
+
         try {
-
-            Method method = ((MethodSignature) joinPoint.getSignature()).getMethod();
-            Object[] args = joinPoint.getArgs();
-
-            if (ClassUtils.isOriginMethod(method)) {
-                return joinPoint.proceed(args);
-            }
 
             SwakBiz swakBiz = AnnotationUtils.findAnnotation(joinPoint.getThis().getClass(), SwakBiz.class);
             if (Objects.isNull(swakBiz)) {
                 return joinPoint.proceed(args);
             }
-
             SwakContext swakContext = getContext(args);
-            InterfaceExecuteInfo selectInfo = new InterfaceExecuteInfo();
-            BeanUtils.copyProperties(swakContext, selectInfo);
-            selectInfo.setTarget(joinPoint.getThis());
+            // 方法名称 指定执行
+            if (ExecuteType.isMethodNameInvoke(swakContext.getExecuteType())) {
 
-            // 寻找的目标执行信息
-            InterfaceExecuteInfo executeInfo = swakRegister.lookUp(selectInfo);
-            Assert.notNull(executeInfo, "no find interface execute info");
-
-            // 获取真实对象
-            Class<?> clazz = AopUtils.getTargetClass(executeInfo.getTarget());
-            // 获得对应的method
-            Method executeMethod = ClassUtils.getMethod(clazz, method.getName(), method.getParameterTypes());
-
-            // 判断是否是代理对象
-            Object bean = executeInfo.getTarget();
-            if (AopUtils.isAopProxy(bean)) {
-                bean = AopProxyUtils.getSingletonTarget(executeInfo.getTarget());
+                return methodInvoke(joinPoint, method, swakContext);
             }
-            return executeMethod.invoke(bean, args);
+
+            return interfaceInvoke(joinPoint, method, swakContext);
+
         } catch (Throwable e) {
             throw new RuntimeException(e);
 
@@ -97,6 +86,53 @@ public class SwakInterfaceAop {
 
             SwakLocal.getCurrent().clear();
         }
+    }
+
+    /**
+     * 制定方法执行
+     *
+     * @param joinPoint
+     * @param method
+     * @param
+     * @return
+     */
+    private Object methodInvoke(ProceedingJoinPoint joinPoint, Method method, SwakContext swakContext)
+            throws Throwable {
+
+        return method.invoke(joinPoint.getThis(), joinPoint.getArgs());
+    }
+
+
+    /**
+     * 接口 执行方法
+     *
+     * @param joinPoint
+     * @return
+     * @throws Throwable
+     */
+    private Object interfaceInvoke(ProceedingJoinPoint joinPoint, Method method, SwakContext swakContext) throws Throwable {
+
+
+        InterfaceExecuteInfo selectInfo = new InterfaceExecuteInfo();
+        BeanUtils.copyProperties(swakContext, selectInfo);
+        selectInfo.setTarget(joinPoint.getThis());
+
+        // 寻找的目标执行信息
+        InterfaceExecuteInfo executeInfo = swakRegister.lookUp(selectInfo);
+        Assert.notNull(executeInfo, "no find interface execute info");
+
+        // 获取真实对象
+        Class<?> clazz = AopUtils.getTargetClass(executeInfo.getTarget());
+        // 获得对应的method
+        Method executeMethod = ClassUtils.getMethod(clazz, method.getName(), method.getParameterTypes());
+
+        // 判断是否是代理对象
+        Object bean = executeInfo.getTarget();
+        if (AopUtils.isAopProxy(bean)) {
+            bean = AopProxyUtils.getSingletonTarget(executeInfo.getTarget());
+        }
+        return executeMethod.invoke(bean, joinPoint.getArgs());
+
     }
 
 

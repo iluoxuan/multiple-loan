@@ -2,11 +2,13 @@ package com.multiple.frame.swak.register;
 
 import com.google.common.collect.Maps;
 import com.multiple.frame.swak.annotation.SwakInterface;
+import com.multiple.frame.swak.config.SwakConstants;
 import com.multiple.frame.swak.entity.InterfaceExecuteInfo;
 import com.multiple.frame.swak.entity.MethodExecuteInfo;
 import com.multiple.frame.swak.entity.SwakContext;
 import com.multiple.frame.swak.utils.ClassUtils;
 import org.springframework.util.Assert;
+import org.springframework.util.CollectionUtils;
 
 import java.util.Map;
 import java.util.Optional;
@@ -79,9 +81,11 @@ public class DefaultSwakRegister implements SwakRegister {
     @Override
     public MethodExecuteInfo lookMethod(SwakContext swakContext, String methodName) {
 
-        //
+        String tag = CollectionUtils.isEmpty(swakContext.getTags()) ? SwakConstants.swakDefaultBiz :
+                swakContext.getTags().get(0);
+
         String key = String.format(DEFAULT_FORMAT, swakContext.getBizCode(),
-                swakContext.getTags().get(0), methodName);
+                tag, methodName);
 
         return methodExecuteCache.get(key);
     }
