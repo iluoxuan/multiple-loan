@@ -67,5 +67,5 @@
 
 
 ### 可扩展化
-![原理图](/doc/images/channel-jgt.png)
+![原理图](./doc/images/channel-jgt.png)
 
